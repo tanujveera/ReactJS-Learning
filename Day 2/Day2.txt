@@ -1,0 +1,6 @@
+Package.json is a configuration file for npm. This file focuses on project metadata and specifying the desired versions of dependencies
+
+command: npm init is used to initialize the project
+
+Bundler: It is a tool that takes all JS code along with other assets like CSS/Images etc and combines into single file that can be served to browser
+

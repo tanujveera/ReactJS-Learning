@@ -1,0 +1,30 @@
+VS code uses Emmet to create boiler plate code
+
+1) React.createElement(tag type,{props},children);
+
+Ex: React.createElement("div",{id:"divID"}, React.createElement("h1",{},"Hello World"));
+O/p: This creates a <div> tag with attribute as id="divID" and it has a child tag <h1> in which is has the text "Hello World"
+<div>
+  <h1>
+    Hello World
+  </h1>
+</div>
+
+{} - Will have attributes which will be added to the tag defined.
+
+2) ReactDOM.createRoot(domNode,options)
+
+React will create a root for this DOM element and allow you to call functions on the root, such as render to display rendered React content.
+
+3) render()
+createRoot lets you create a root to display React components inside a browser DOM node.
+Ex: const root = createRoot(document.getElementById('root'));
+root.render(<App />);
+
+4) We can create sibling tags meaning, we can have 2 <h1> tags in same div by giving array of the children to the createElement functions
+
+React.createElement("div",{},[
+  React.createElement("h1",{},"Hello"),
+  React.createElement("h1",{},"World")
+])
+
