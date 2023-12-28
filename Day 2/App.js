@@ -1,5 +1,6 @@
-//To create a html tag
-// const heading = React.createElement("h1",{id: "heading"},"Hello World from React");
+import React from "react"
+import  ReactDOM  from "react-dom/client";
+
 const htag = React.createElement("h1",{},"H1 Tag");
 const htag2 =React.createElement("h2",{},"H2 Tag");
 const child = React.createElement("div",{id:"child"},[htag,htag2]);
