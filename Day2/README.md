@@ -101,12 +101,13 @@ Parcel build the project and hosts locally
 CDN (Content Delivery Network) way of creating ReactJS web app is not recommended.
 
 > Instead install react locally using command: ```sh
-> npm install react
+npm install react
 
 ````
 
 >To add react and react-dom dependencies into project
 commands:
+
 ```sh
   node_modules: npm install or npm i
   react: npm install react or npm i react
