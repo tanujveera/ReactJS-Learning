@@ -1,4 +1,6 @@
-# VS code uses Emmet to create boiler plate code
+# Day 1 of React
+
+> VS code uses Emmet to create boiler plate code
 
 ## React.createElement(tag type,{props},children);
 
