@@ -44,4 +44,5 @@ React.createElement("div",{},[
   React.createElement("h1",{},"World")
 ])
 ```
->`{}` is for giving attributes like id, class, href, etc
+
+> `{}` is for giving attributes like id, class, href, etc
