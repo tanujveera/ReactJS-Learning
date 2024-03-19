@@ -8,7 +8,7 @@ Example:
 React.createElement("div",{id:"divID"}, React.createElement("h1",{},"Hello World"));
 ```
 
-> O/p: This creates a `<div>` tag with attribute as id="divID" and it has a child tag `<h1>` in which is has the text "Hello World"
+> O/p: This creates a `<div>` tag with attribute as id="divID" and it has a child tag `<h1>` in which is has the text "Hello World". This will eventually return an React object.
 
 ```sh
 <div>
@@ -26,7 +26,7 @@ React.createElement("div",{id:"divID"}, React.createElement("h1",{},"Hello World
 
 ## render()
 
-> createRoot lets you create a root to display React components inside a browser DOM node.
+> createRoot lets you create a root to display React components inside a browser DOM node. React Object is rendered to JS.
 > Example:
 
 ```sh
