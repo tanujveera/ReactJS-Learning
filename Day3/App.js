@@ -30,6 +30,7 @@ const TitleComponent = () => {
 };
 
 // React Component: Class(old) & Functional(new)
+//This is a functional component
 const HeadingComponent = () => (
   <div id="container">
     {HeadingComponent1}
