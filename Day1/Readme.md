@@ -6,13 +6,13 @@
 
 Example:
 
-```sh
+```js
 React.createElement("div",{id:"divID"}, React.createElement("h1",{},"Hello World"));
 ```
 
 > O/p: This creates a `<div>` tag with attribute as id="divID" and it has a child tag `<h1>` in which is has the text "Hello World". This will eventually return an React object.
 
-```sh
+```js
 <div>
   <h1>
     Hello World
@@ -31,7 +31,7 @@ React.createElement("div",{id:"divID"}, React.createElement("h1",{},"Hello World
 > createRoot lets you create a root to display React components inside a browser DOM node. React Object is rendered to JS.
 > Example:
 
-```sh
+```js
 const root = createRoot(document.getElementById('root'));
 root.render(<App />);
 ```
@@ -40,7 +40,7 @@ root.render(<App />);
 
 > We can create sibling tags meaning, we can have 2 `<h1>` tags in same div by giving array of the children to the createElement functions
 
-```sh
+```js
 React.createElement("div",{},[
   React.createElement("h1",{},"Hello"),
   React.createElement("h1",{},"World")
