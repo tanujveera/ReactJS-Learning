@@ -33,14 +33,15 @@ const TitleComponent = () => {
 //This is a functional component
 const HeadingComponent = () => (
   <div id="container">
-    {HeadingComponent1}
-    <TitleComponent />
+    {HeadingComponent1} 
+    <TitleComponent/> 
     {TitleComponent()}
     <h1>React Component</h1>
   </div>
+  
 );
 
 //Root element is created to render React elements
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<HeadingComponent />);
+root.render(<HeadingComponent/>);
