@@ -3,7 +3,7 @@
 > Create a script to run instead of "npx parcel index.html"
 > In package.json, in "script object", we can create a script to start project
 
-```sh
+```js
   "scripts": {
     "start":"parcel index.html",
     "build":"parcel build index.html",
@@ -20,7 +20,7 @@
 
 ---
 
-```sh
+```js
 import React from "react";
 import  ReactDOM  from "react-dom/client";
 
@@ -43,7 +43,7 @@ root.render(heading);
 
 ## Creating element using jsx
 
-```sh
+```js
 //Using jsx syntax
 const jsxHeading = <h1>Tanuj Veera😎<h1/>;
 ```
@@ -64,7 +64,7 @@ If you want to give class attribute to HTML element
 
 We use className instead of HTML class
 
-```sh
+```js
 const jsxHeading = <h1 id="heading" className="heading">Tanuj Veera😎</h1>;
 ```
 
@@ -79,22 +79,22 @@ const jsxHeading = <h1 id="heading" className="heading">Tanuj Veera😎</h1>;
 
 > Component's naming convention is always camel case. Ex: TitleComponent
 
-```sh
+```js
 const HeadingComponent= ()=>{ return <h1>Tanuj Veera</h1>};
 ```
 
 or
 
-```sh
+```js
 const HeadingComponent= ()=> <h1>Tanuj Veera</h1>;
 ```
 
-```sh
+```js
 //React Element
 const HeadingComponent1=(<h1>React Element</h1>);
 ```
 
-```sh
+```js
 // React Component: Functional
 //with return use {}
 const HeadingComponent= ()=>{
@@ -102,7 +102,7 @@ return <h1>React Component</h1>
 };
 ```
 
-```sh
+```js
 //Without return use ()
 const HeadingComponent= ()=> (<h1>React Component</h1>);
 ```
@@ -112,7 +112,7 @@ const HeadingComponent= ()=> (<h1>React Component</h1>);
 
 > If we need to render into a root element using functional Component then we use:
 
-```sh
+```js
 root.render(<HeadingComponent/>)
 ```
 
@@ -121,7 +121,7 @@ root.render(<HeadingComponent/>)
 Component Composition
 : Component inside a component
 
-```sh
+```js
 const TitleComponent = () => {return <h2>Title Component</h2>};
 
 const HeadingComponent= ()=>(
@@ -138,7 +138,7 @@ We can write JS code in JSX code
 
 We can put React Element or React Component
 
-```sh
+```js
 const num = 100;
 const TitleComponent1 = ( <h2>Title Component</h2>);// React Element
 const TitleComponent = () => {return <h2>Title Component</h2>}; //React Component
