@@ -10,7 +10,7 @@ const heading = React.createElement("h1", { id: "heading" }, "Tanuj Veera😎");
 //Babel is a package which converts the code in React understandable format.
 //Babel will transpile the JSX code to JS. A transpiler converts a language into similar level of language. EX: Typescript to Javascript.
 //A compiler converts a high level language to low level language that machine understands
-//JSX -> React.createElement -> ReactElement - Object -> HTML render
+//JSX -> React.createElement -> ReactElement - JS Object -> HTML render
 const jsxHeading = (
   <h1 id="heading" taxIndex="0" className="heading">
     Tanuj Veera😎
