@@ -47,7 +47,7 @@ Command to install parcel Bundler: npm install -D parcel
 
 In package.json
 
-```sh
+```js
   "devDependencies": {
     "parcel": "^2.10.3"
   }
@@ -164,7 +164,7 @@ A "dist' folder is created
 
 In package.json,
 
-```sh
+```js
   "browserslist":{
     "last 2 Chrome versions"
   }
