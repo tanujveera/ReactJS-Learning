@@ -1,4 +1,4 @@
-## Day 2
+## Day 3 of React
 
 > Create a script to run instead of "npx parcel index.html"
 > In package.json, in "script object", we can create a script to start project
