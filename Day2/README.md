@@ -1,4 +1,4 @@
-# ReactJS
+# Day 2 of React
 
 # Parcel
 
@@ -101,39 +101,42 @@ Parcel build the project and hosts locally
 CDN (Content Delivery Network) way of creating ReactJS web app is not recommended.
 
 > Instead install react locally using command:
+
 ```sh
 npm install react
-````
+```
 
->To add react and react-dom dependencies into project
-commands:
+> To add react and react-dom dependencies into project
+> commands:
 
 ```sh
   node_modules: npm install or npm i
   react: npm install react or npm i react
   react-dom: npm install react-dom or npm i react-dom
-````
+```
 
 ---
 
-> Normal JavaScript doesn't have import keyword. So we can't use react with `<script src="App.js">` tag.
+> Normal JavaScript doesn't have import or export keywords. So we can't use react with `<script src="App.js">` tag.
+
+> We need specify that it is a module in script tag: `<script type="module" src="App.js">`
 
 ## Parcel is used for:
 
 - Dev build
 - Local server
-- HMR= Hot Module Repalcement
+- HMR= Hot Module Replacement
 - File watching Algorithm - written in C++ for Automatic Refresh
 - creates Cache - for faster builds
 - image optimization - Minification and bundles it
 - Compressing
-- Consistent Hasing (read about it)
+- Consistent Hashing (read about it)
 - Differential Bundling - support old browsers
 - Code splitting
 - Diagnostics
 - Error handling
 - can host in https instead of http
-- Tree Shaking - remove unused code for use
+- Tree Shaking - removes unused code
 
 > If you want to run your React App in prod then
 > use command:
@@ -155,7 +158,7 @@ npx parcel index.html
 A "dist' folder is created
 
 > When we execute parcel, it generates a development project build it creates a folder "dist" and puts those files there.
-> When we make changes, it uses parcel cache and dist to update it faster using Hot Module Repalcement (HMR)
+> When we make changes, it uses parcel cache and dist to update it faster using Hot Module Replacement (HMR)
 
 > We can ignore dist and .parcel-cache folders for gitignore
 
@@ -167,4 +170,4 @@ In package.json,
   }
 ```
 
-> We can make our last 2 versions of chrome to be compatable.
+> We can make our last 2 versions of chrome to be compatible.
