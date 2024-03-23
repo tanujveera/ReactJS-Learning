@@ -1,8 +1,10 @@
+# Day 4 of React
+
 ## Always plan for the project. Create a visual replica of the project you want to create.
 
 ---
 
-```
+```js
 const styleCard={
   backgroundColor:"red",
 };
@@ -22,7 +24,7 @@ const RestaurantCard = () =>{
 
 > JSX syntax: `style={styleCard}`
 
-```
+```js
 style={{ backgroundColor:"red",}}
 ```
 
@@ -30,7 +32,7 @@ style={{ backgroundColor:"red",}}
 
 > props(Properties): We can send props into a functional component. They are parameters sent to a function. sending a prop to functional component
 
-```
+```js
 const ResCard = (obj)=>{
   return (<div>{obj.resName}</div>
     <div>{obj.Cuisine}</div>)
@@ -40,21 +42,23 @@ const Body = () => {
   <ResCard resName="Sagar Restro", Cuisine="Indian"/>
 }
 ```
+## Props
+>Functional Components in JSX are JavaScript functions. Props are arguments passed on to the Functional Component.
 
 Here in Body, resName and cuisine are called props. These props are sent as objects to functional component.
 
 > Destructuring in JS: The destructuring assignment syntax is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables. (Read More about this)
 
-```
+```js
 //Destructuring on the fly
-const ResCard = ({resNamem,Cuisine})=>{
+const ResCard = ({resName,Cuisine})=>{
   return (<div>{obj.resName}</div>
     <div>{obj.Cuisine}</div>)
 }
 
 const ResCard = (props)=>{
   //Destructuring
-  const {resNamem,Cuisine} = props;
+  const {resName,Cuisine} = props;
   return (<div>{resName}</div>
     <div>{Cuisine}</div>)
 }
@@ -66,7 +70,7 @@ const Body = () => {
 
 This is Destructuring in JS
 
-> Config Driven UI: Website is driven by Config files. We get a JSON data from backend with all the info needed for frontend to display. we parse the info and map them with UI elements.
+> Config Driven UI: Website is driven by Config files. We get a JSON data from backend with all the info needed for frontend to display. We parse the info and map them with UI elements.
 
 ---
 
