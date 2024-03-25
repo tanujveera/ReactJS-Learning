@@ -78,3 +78,26 @@ This is Destructuring in JS
 The optional chaining (?.) operator accesses an object's property or calls a function. If the object accessed or function called using this operator is undefined or null, the expression short circuits and evaluates to undefined instead of throwing an error.
 
 ---
+
+>Every Component prop should have a "key" prop
+
+```js
+<div className="res-container">
+  {resList.map((restaurant) => (
+    <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+  ))}
+</div>
+```
+
+We can use the key, the id given in the config file (json) or we can use the javascript map's function index argument
+
+```js
+<div className="res-container">
+  {resList.map((restaurant,index) => (
+    <RestaurantCard key={index} resData={restaurant} />
+  ))}
+</div>
+```
+The above method to use map's index isn't recommended
+Every prop should have a unique key which should be given from backend json config data
+----
