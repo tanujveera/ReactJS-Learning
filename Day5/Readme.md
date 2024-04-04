@@ -33,7 +33,8 @@ export const gender = "Male";
 
 //Importing Named Export
 // user.js
-import { name, gender } from "./name.js";
+// Named export will always import using {}
+import { name, gender } from "./user.js";
 ```
 
 2. Default Exports: It can only export a single object (function or variable).
@@ -46,5 +47,5 @@ export default name;
 
 //Importing Default Export
 // user.js
-import name from "./name.js";
+import name from "./user.js";
 ```
