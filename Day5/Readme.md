@@ -20,3 +20,31 @@
 There is a conventional way in industry to keep React code in 'src' source folder.
 
 Usually, each component are written in separate files.
+
+There are two types of exports:
+
+1. Named Exports: It can export multiple functions, variables
+
+```js
+//Named Export
+// name.js
+export const name = "Tanuj Veera";
+export const gender = "Male";
+
+//Importing Named Export
+// user.js
+import { name, gender } from "./name.js";
+```
+
+2. Default Exports: It can only export a single object (function or variable).
+
+```js
+//Default Export
+// name.js
+const name = "Tanuj Veera";
+export default name;
+
+//Importing Default Export
+// user.js
+import name from "./name.js";
+```
