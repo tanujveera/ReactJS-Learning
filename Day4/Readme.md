@@ -5,17 +5,17 @@
 ---
 
 ```js
-const styleCard={
-  backgroundColor:"red",
+const styleCard = {
+  backgroundColor: "red",
 };
 
-const RestaurantCard = () =>{
+const RestaurantCard = () => {
   return (
     <div className="res-card" style={styleCard}>
       <h3>Megahana Foods</h3>
     </div>
-  )
-}
+  );
+};
 ```
 
 ---
@@ -42,8 +42,10 @@ const Body = () => {
   <ResCard resName="Sagar Restro", Cuisine="Indian"/>
 }
 ```
+
 ## Props
->Functional Components in JSX are JavaScript functions. Props are arguments passed on to the Functional Component.
+
+> Functional Components in JSX are JavaScript functions. Props are arguments passed on to the Functional Component.
 
 Here in Body, resName and cuisine are called props. These props are sent as objects to functional component.
 
@@ -79,7 +81,7 @@ The optional chaining (?.) operator accesses an object's property or calls a fun
 
 ---
 
->Every Component prop should have a "key" prop
+> Every Component prop should have a "key" prop
 
 ```js
 <div className="res-container">
@@ -93,11 +95,13 @@ We can use the key, the id given in the config file (json) or we can use the jav
 
 ```js
 <div className="res-container">
-  {resList.map((restaurant,index) => (
+  {resList.map((restaurant, index) => (
     <RestaurantCard key={index} resData={restaurant} />
   ))}
 </div>
 ```
+
 The above method to use map's index isn't recommended
 Every prop should have a unique key which should be given from backend json config data
-----
+
+---
