@@ -36,7 +36,10 @@ command: `npm init` is used to initialize the project
 
 There are different bundlers in React like Webpack, Parcel, Vite
 
-Command to install parcel Bundler: npm install -D parcel
+Command to install parcel Bundler: 
+```sh
+npm install -D parcel
+```
 
 > A dependency is just a package that your project uses 2 types of dependencies: devDependencies and Dependencies
 
