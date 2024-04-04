@@ -28,8 +28,15 @@ There are two types of exports:
 ```js
 //Named Export
 // name.js
+// use export for every export variable or function
 export const name = "Tanuj Veera";
 export const gender = "Male";
+
+//or use export in this way
+const name = "Tanuj Veera";
+const gender = "Male";
+
+export { name, gender };
 
 //Importing Named Export
 // user.js
@@ -49,3 +56,18 @@ export default name;
 // user.js
 import name from "./user.js";
 ```
+
+# React Hooks
+
+> Hooks let you use different React features from your components. You can either use the built-in Hooks or combine them to build your own.
+
+> There are normal JavaScript utility functions
+
+There are 2 important hooks:
+
+- useState()
+- useEffect()
+
+**NOTE** There are other React Hooks. check out at [React Hooks](https://react.dev/reference/react/hooks "React Hooks Docs")
+
+## useState()
