@@ -71,3 +71,11 @@ There are 2 important hooks:
 **NOTE** There are other React Hooks. check out at [React Hooks](https://react.dev/reference/react/hooks "React Hooks Docs")
 
 ## useState()
+
+It lets you add a `state variable` to your component
+
+useState is called on top level of your component to declare state variable. useState(initialValue)
+
+```js
+const [listOfRestaurants] = useState(0);
+```
