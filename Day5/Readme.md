@@ -92,6 +92,8 @@ Instead we should always change the state variable using setListOfRestaurants().
 
 Reconciliation Algorithm also known as `React Fiber` introduced in React 16
 
+The algorithm React uses to diff one tree with another to determine which parts need to be changed.
+
 ![Reconciliation Algorithm](https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fxjqsuome198owgamcgr3.jpeg "Reconciliation Algorithm")
 
 Lets say there are many many React components loaded in DOM. Whenever there is a change in the components, React re-renders. From above image let's say, only green ones are rendered by React, then the virtual DOM should be updated.
@@ -106,4 +108,4 @@ Lets say there are many many React components loaded in DOM. Whenever there is a
 
 >Virtual DOM makes the performance faster not because of faster processing but rather than wasting time on updating the entire page, you can dissect it into small elements and interactions.
 
->Reconciliation Algorithm finds the difference between the virtual DOM and actual DOM
+>Reconciliation Algorithm finds the difference between the virtual DOM from previous virtual DOM and then re-renders the componentDOM.
