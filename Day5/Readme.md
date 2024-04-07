@@ -77,5 +77,33 @@ It lets you add a `state variable` to your component
 useState is called on top level of your component to declare state variable. useState(initialValue)
 
 ```js
-const [listOfRestaurants] = useState(0);
+const [listOfRestaurants, setListOfRestaurants] = useState(0);
 ```
+
+> Whenever a state variable updates React re-renders the component.
+
+We should never change the variable using the variable itself, in this case "listOfRestaurants".
+
+Instead we should always change the state variable using setListOfRestaurants(). This method is used to change the state variable.
+
+**NOTE**: We can use any naming convention to these state variables. But it is good practice to use this convention which is widely used across the industry. `[stateVar, setVariable]`
+
+## Reconciliation Algorithm
+
+Reconciliation Algorithm also known as `React Fiber` introduced in React 16
+
+![Reconciliation Algorithm](https://media.dev.to/cdn-cgi/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fxjqsuome198owgamcgr3.jpeg "Reconciliation Algorithm")
+
+Lets say there are many many React components loaded in DOM. Whenever there is a change in the components, React re-renders. From above image let's say, only green ones are rendered by React, then the virtual DOM should be updated.
+
+**Virtual DOM**: is a memory representation or blue print of the actual DOM. In React, this is just a object. (try console.log(component), it returns a React object).
+
+**Actual DOM**: is the actual structure of the webpage. It is the original `<html>, <div>, <img>` tags (in simpler words).
+
+**DOM**: represents the web page often called a document with a logical tree and each branch of the tree ends in a node and each node contains objects.
+
+>React updates the state changes in Virtual DOM first and then it syncs with actual DOM.
+
+>Virtual DOM makes the performance faster not because of faster processing but rather than wasting time on updating the entire page, you can dissect it into small elements and interactions.
+
+>Reconciliation Algorithm finds the difference between the virtual DOM and actual DOM
