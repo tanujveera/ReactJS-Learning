@@ -61,7 +61,7 @@ When trying to fetch the data from swiggy's official API link. We are getting er
 Use the Chrome extension [Allow Cors](https://chromewebstore.google.com/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf "Allow Cors chrome extension").
 Update the settings to enable cors.
 Access-Control-Access-Headers should be turned ON.
-Access-Control-Access-Origin should be *
+Access-Control-Access-Origin should be \*
 
 ## Shimmer
 
@@ -72,3 +72,20 @@ Here we are using mockData.js to load the cards. But this isn't the best way. So
 In the time of fetching the data from API, it takes time. We can show a `<h1>Loading...</h1>` when the data is still not fetched. This is not a good industry practice.
 
 Hence we use Shimmer which mimics the cards form instead of actual content. This gives a better experience.
+
+Conditional Rendering: Render a Component based on the conditon
+
+```js
+if (listOfRestaurants.length === 0) {
+  return <Shimmer />;
+}
+```
+
+We can also use ternary operator for conditional render. So based on the condition either `<Loading/>` is loaded or `<Component/>`.
+
+```js
+return (condition) ? <Loading/> : <Component/>;
+```
+
+
+
