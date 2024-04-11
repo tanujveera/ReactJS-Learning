@@ -87,5 +87,10 @@ We can also use ternary operator for conditional render. So based on the conditi
 return (condition) ? <Loading/> : <Component/>;
 ```
 
+>Ever wonder how can a state variable which is defined as const can change it's value?
+
+The const value is never reassigned to another variable. If you use let then the value can be changed.
+
+In React, "const" keyword are used more likely to create a react state in ideal way and also to warn developers to reset the memory location of the state to re-render and reflect the changes in page.
 
 

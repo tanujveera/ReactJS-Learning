@@ -35,6 +35,8 @@ const Body = () => {
     console.log("useEffect called");
   }, []);
 
+  console.log("Header rendered");
+
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
