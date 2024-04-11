@@ -23,3 +23,52 @@ Two approaches to fetch data from backend
 In React, we will always use 2nd approach. Because user will not have to wait till the data is fetched. User will have a good experience. UI/UX (User Interface/ User Experience). After rendering the page, the fetched data is loaded.
 
 React has the render cycle very fast.
+
+# useEffect
+
+useEffect is a React Hook that lets you synchronize a component with an external system.
+
+It has arguments:
+
+1. Call Back Function
+2. Dependency
+
+```js
+useEffect(() => {
+  console.log("useEffect called");
+}, []);
+```
+
+In this code which `console.log()` will be printed first
+
+```js
+useEffect(() => {
+  console.log("useEffect called");
+}, []);
+
+console.log("rendered");
+```
+
+Ironically, `rendered` is printed to console first. Call back function in `useEffect()` is called after render is complete.
+
+So after the render, in useEffect() we can have a logic of fetching API data. The fetched data is rendered.
+
+## CORS
+
+When trying to fetch the data from swiggy's official API link. We are getting error that we can't access the API data as per the CORS policy.
+
+**NOTE**
+Use the Chrome extension [Allow Cors](https://chromewebstore.google.com/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf "Allow Cors chrome extension").
+Update the settings to enable cors.
+Access-Control-Access-Headers should be turned ON.
+Access-Control-Access-Origin should be *
+
+## Shimmer
+
+A shimmer UI is a kind of the user interface that mimics the shades and forms of content that will ultimately appear instead of having any actual content.
+
+Here we are using mockData.js to load the cards. But this isn't the best way. So we have to give empty array to useState hook in this way `useState([])`. Since we added setListOfRestaurants() method change the state and load the cards directly from the Swiggy API. `fetchAPI()` method will fetch the data and and return the essential data.
+
+In the time of fetching the data from API, it takes time. We can show a `<h1>Loading...</h1>` when the data is still not fetched. This is not a good industry practice.
+
+Hence we use Shimmer which mimics the cards form instead of actual content. This gives a better experience.
