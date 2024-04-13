@@ -106,3 +106,18 @@ Here in below code, we are changing the state of `btnName` using setBtnName() me
 >
 ```
 
+Here in below code, there is a search feature. The input given in input-box should be given to a function which filters out the restaurants cards based on the input when Search button is clicked.
+
+```js
+const [searchText,setSearchText] = useState("");
+//... some code
+<div className="search">
+  <input type="text" className="search-box" value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}></input>
+  <button className="" onClick={()=>{
+    console.log(searchText);
+  }}>Search</button>
+</div>
+```
+Input doesn't work when we type anything. This is because searchText is a state variable and it it set to empty string by default. So if the value is changed using setSearchText() method then input value also changes.
+
+**State Variables** When ever there is a change in state variable, it re-renders the component.
