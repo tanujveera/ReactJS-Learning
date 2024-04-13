@@ -93,4 +93,16 @@ The const value is never reassigned to another variable. If you use let then the
 
 In React, "const" keyword are used more likely to create a react state in ideal way and also to warn developers to reset the memory location of the state to re-render and reflect the changes in page.
 
+Here in below code, we are changing the state of `btnName` using setBtnName() method. When we click the button, only the button will change and other elements in `Header` Component doesn't change.
+
+```js
+//Header.js
+<button
+  className="login"
+  onClick={() => {
+    btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
+    console.log(btnName);
+  }}
+>
+```
 
