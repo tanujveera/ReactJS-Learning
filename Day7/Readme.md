@@ -92,3 +92,54 @@ const Error = ()=>{
 ## Children Routes
 
 Header isn't loaded when we are using routing. So to have the Header component intact with all other components. 
+
+All the routes are populated in children attribute of createBrowserRouter()
+
+```js
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+    ],
+  },
+]);
+```
+## Outlet
+
+In AppLayout Component, we have to add a Component called `<Outlet>`
+
+```js
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header />
+      <Outlet />
+    </div>
+  );
+};
+```
+
+
+So Header will render and all the other children declared with paths in createBrowserRouter() will be rendered along with Header in AppLayout.
+
+With respective the route path, the component is rendered. `<Outlet>` helps in rendering children routes.
+
+## Link Component
+
+Let's say there is a button About, you want to link that button to "/about" route. You can use `<a>` anchor tag. But we shouldn't use it. Because if you use anchor tag, when the button is clicked to navigate to another route, the whole page will re-render.
+
+We have a component called `<Link/>` in react-router-dom, used to link routes. It doesn't re-render the whole page but only essential parts of page.
