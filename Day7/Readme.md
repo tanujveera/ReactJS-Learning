@@ -36,6 +36,8 @@ So react-router-dom enables client side routing. Client side routing allows your
 
 This enables faster user experiences because the browser doesn't need to request an entirely new document or re-evaluate CSS and JavaScript assets for the next page. It also enables more dynamic user experiences with things like animation.
 
+## createBrowserRouter()
+
 Add configuration in App.js
 
 ```js
@@ -56,16 +58,20 @@ Here we declare the client side routing by specifying the path and also the comp
 
 createBrowserRouter([]) is used to create and specify the routes.
 
+## RouterProvider
+
+This RouterProvider will provide the component to render.
+
 ```js
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter}/>);
 ```
 
-This RouterProvider will provide the component to render.
-
 When we provide any route which isn't declared in createBrowserRouter(), then it throws a React error page
 
 ![alt text](image.png)
+
+## useRouterError Hook
 
 We can create our own custom error page.
 
@@ -143,3 +149,9 @@ With respective the route path, the component is rendered. `<Outlet>` helps in r
 Let's say there is a button About, you want to link that button to "/about" route. You can use `<a>` anchor tag. But we shouldn't use it. Because if you use anchor tag, when the button is clicked to navigate to another route, the whole page will re-render.
 
 We have a component called `<Link/>` in react-router-dom, used to link routes. It doesn't re-render the whole page but only essential parts of page.
+
+# Two types of routing in Web
+- Client side routing
+- Server side routing 
+
+Single page application: Here the web application is just a single page which navigates to different components.
