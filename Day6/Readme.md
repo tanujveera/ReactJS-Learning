@@ -112,7 +112,7 @@ Here in below code, there is a search feature. The input given in input-box shou
 const [searchText,setSearchText] = useState("");
 //... some code
 <div className="search">
-  <input type="text" className="search-box" value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}></input>
+  <input type="text" className="search-box" value={searchText}></input>
   <button className="" onClick={()=>{
     console.log(searchText);
   }}>Search</button>
@@ -121,3 +121,55 @@ const [searchText,setSearchText] = useState("");
 Input doesn't work when we type anything. This is because searchText is a state variable and it it set to empty string by default. So if the value is changed using setSearchText() method then input value also changes.
 
 **State Variables** When ever there is a change in state variable, it re-renders the component.
+
+```js
+const [searchText, setSearchText] = useState("");
+//... some code
+<div className="search">
+  <input type="text" className="search-box" value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}></input>
+  <button className="" onClick={()=>{
+    console.log(searchText);
+  }}>Search</button>
+</div>
+```
+
+The onChange attribute used to handle event will call setSearchText() method to change the input box. Now then ever a character is typed in input box, searchText is set to a new value and the Component re-renders.
+
+When ever a new character is entered into the input box, it re-renders the component. React will compare actual DOM with virtual DOM and then updates the input box. Reconciliation Algorithm in action !!
+
+**NOTE** In javascript, if you are using arrow functions, keep this in mind
+
+```js
+//return is must when using {}
+(res) => {return res.info.name.includes(searchText)}
+//returns empty array []
+(res) => {res.info.name.includes(searchText)}
+//remove the {} and return, this is still a valid statement
+(res) => res.info.name.includes(searchText)
+```
+
+Now when we search for something and then click search button. we get those restaurants. But since we updated the listOfRestaurants with the searched value. When we try to search again, we will search in those restaurants list which we previously updated.
+
+```js
+<div className="search">
+<input
+  type="text"
+  className="search-box"
+  value={searchText}
+  onChange={(e) => {
+    setSearchText(e.target.value);
+  }}
+></input>
+<button
+  className=""
+  onClick={() => {
+    const filteredRestaurants = listOfRestaurants.filter((res) => {return res.info.name.toLowerCase().includes(searchText)});
+    setListOfRestaurants(filteredRestaurants);
+  }}
+>
+  Search
+</button>
+</div>
+```
+
+So create a state variable separately and update it in fetchData() method using another useState() variable. render in res-container div tag should be based on filteredRestaurant. 
