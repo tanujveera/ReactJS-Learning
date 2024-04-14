@@ -25,17 +25,19 @@ const Body = () => {
       .then((data) => {
         return data;
       });
-      console.log(
-        jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      );
+    console.log(
+      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
 
     setListOfRestaurants(
       jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
-    setFilterRestaurants(jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-      ?.restaurants);
+    setFilterRestaurants(
+      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants
+    );
   };
 
   useEffect(() => {
@@ -63,7 +65,9 @@ const Body = () => {
             className=""
             onClick={() => {
               // console.log(searchText);
-              const filteredRestaurant = listOfRestaurants.filter((res) => {return res.info.name.toLowerCase().includes(searchText)});
+              const filteredRestaurant = listOfRestaurants.filter((res) => {
+                return res.info.name.toLowerCase().includes(searchText);
+              });
               // console.log(filteredRestaurants);
               setFilterRestaurants(filteredRestaurant);
             }}
@@ -74,10 +78,10 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            let filterResList = listOfRestaurants.filter(
-              (res) => res.info.avgRating > 4
+            let filterResList = filteredRestaurants.filter(
+              (res) => res.info.avgRating > 4.2
             );
-            setListOfRestaurants(filterResList);
+            setFilterRestaurants(filterResList);
             console.log(filterResList);
           }}
         >
