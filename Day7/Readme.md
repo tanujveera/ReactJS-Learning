@@ -61,4 +61,34 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={appRouter}/>);
 ```
 
-This RouterProvider will provide the component to render
+This RouterProvider will provide the component to render.
+
+When we provide any route which isn't declared in createBrowserRouter(), then it throws a React error page
+
+![alt text](image.png)
+
+We can create our own custom error page.
+
+or
+
+react-router-dom provides an important Hook - `useRouterError`
+
+```js
+const Error = ()=>{
+  const err = useRouteError();
+  console.log(err);
+  return(
+    <div>
+      <h1>Oops !!</h1>
+      <h2>Something went wrong</h2>
+      <h3>{err.status}: {err.statusText}</h3>
+    </div>
+  )
+}
+```
+
+`err` variable will return an object which has all the error information like status code, message etc.
+
+## Children Routes
+
+Header isn't loaded when we are using routing. So to have the Header component intact with all other components. 
