@@ -155,3 +155,14 @@ We have a component called `<Link/>` in react-router-dom, used to link routes. I
 - Server side routing 
 
 Single page application: Here the web application is just a single page which navigates to different components.
+
+--------------
+
+To make dynamic routing, here we are adding a colon (:) to load component based on the resId
+```js
+{
+  path: "/restaurants/:resId",
+  element: <RestaurantMenu />,
+}
+```
+
