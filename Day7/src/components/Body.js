@@ -39,7 +39,7 @@ const Body = () => {
       jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
     );
-    console.log(listOfRestaurants);
+    // console.log(listOfRestaurants);
   };
 
   useEffect(() => {
@@ -92,7 +92,7 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurants.map((restaurant) => (
-          <Link to={"/restautant/"+restaurant.info.id}><RestaurantCard key={restaurant.info.id} resData={restaurant} /><Link/>
+          <Link to={"/restaurants/"+restaurant.info.id} key={restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>
         ))}
       </div>
     </div>

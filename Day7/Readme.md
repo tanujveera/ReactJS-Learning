@@ -166,3 +166,22 @@ To make dynamic routing, here we are adding a colon (:) to load component based 
 }
 ```
 
+In the above code, the resId is consumed by using useParams() Hook from react-router-dom
+
+```js
+const { resId } = useParams();
+```
+
+The `resId` which we sent through url will be consumed by useParams() hook and use it accordingly.
+
+In the Body component, We use `<Link>` by react-router-dom, to link to the particular endpoint with id if restaurant which is clicked. Then it goes to RestautantMenu Component and loads that particular restaurant menu details.
+
+```js
+//Body.js
+<div className="res-container">
+  {filteredRestaurants.map((restaurant) => (
+    <Link to={"/restaurants/"+restaurant.info.id} key={restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>
+  ))}
+</div>
+```
+Internally `<Link>` uses anchor tag. It's a wrapper on `<a>` anchor tag. When the page is loaded, in developer tools, we can see that all the cards are in `<a>` tag.
