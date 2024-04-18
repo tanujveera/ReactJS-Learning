@@ -48,26 +48,44 @@ Loading a class based components means creating an instance of the class. When e
 In constructor, we define the state using the reserved keyword `state`
 
 ```js
-  constructor(props) {
-    super(props);
-    console.log(props);
-    this.state={
-      count:0
-    }
+constructor(props) {
+  super(props);
+  console.log(props);
+  this.state={
+    count:0,
+    count2:1
   }
+}
 ```
 
 In `render()` method we can use this state variable using `this.state.count`
 
 ```js
-  render() {
-    return (
-      <div className="user-card">
-        <h1>Count : {this.state.count}</h1>
-        <h2>Name: {this.props.name}</h2>
-        <h3>Location: {this.props.location}</h3>
-        <h3>Contact: {this.props.contact}</h3>
-      </div>
-    );
-  }
+render() {
+  const {name, location,contact} = this.props;
+  const{count,count2} = this.state;
+  return (
+    <div className="user-card">
+      <h1>Count : {count}</h1>
+      <h1>Count2 : {count2}</h1>
+      <h2>Name: {name}</h2>
+      <h3>Location: {location}</h3>
+      <h3>Contact: {contact}</h3>
+    </div>
+  );
+}
 ```
+
+To update the state variable in class components, we have to use `setState({})` and we pass an JSON object which sets the state variable.
+
+```js
+<button onClick={()=>{
+  this.setState({
+    count:this.state.count+1,
+    count2:this.state.count+1
+  })
+}}>Count Increase</button>
+```
+
+We don't have to use `setState({})` method every time for each state variable. we can populate all those in a single `setState({})` method.
+
