@@ -10,7 +10,7 @@ const RestaurantMenu = () => {
   console.log(resId);
 
   const fetchMenu = async (resId) => {
-    const data = await fetch(MENU_API + resId + "&submitAction=ENTER");
+    const data = await fetch(MENU_API + resId);
 
     const jsonData = await data.json();
     // console.log(jsonData);
@@ -31,12 +31,15 @@ const RestaurantMenu = () => {
   const { name, cuisines, avgRating } = resInfo?.cards[2]?.card?.card?.info;
 
   const { itemCards } =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+  if (itemCards === null || itemCards === undefined) {
+    return <Shimmer />;
+  }
   console.log(itemCards);
 
   return (
     <div className="menu">
-      <h1>{name}</h1>
+      <h1>{resInfo?.cards[2]?.card?.card?.info.name}</h1>
       <h3>{resInfo?.cards[2]?.card?.card?.info?.cuisines.join(", ")}</h3>
       <h2>Menu</h2>
       <ul>

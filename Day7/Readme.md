@@ -8,18 +8,18 @@ useEffect Hook is called every time a component is rendered. Usually it is used 
 
 ```js
 const [stateVar, setStateVar] = useState([]);
-useEffect(()=>{
-  console.log("useEffect Rendered")
-},[stateVar]);
+useEffect(() => {
+  console.log("useEffect Rendered");
+}, [stateVar]);
 ```
 
 useEffect(callback fn, dependency array)
 
-Callback function is mandatory. If there are no dependency array, then it renders for every re-render the component undergoes. 
+Callback function is mandatory. If there are no dependency array, then it renders for every re-render the component undergoes.
 
-If there is a state variable in dependency array, then whenever the state of that variable changes then useEffect will be called. Dependency array can be any state variable (useState([])). 
+If there is a state variable in dependency array, then whenever the state of that variable changes then useEffect will be called. Dependency array can be any state variable (useState([])).
 
->Even if there is a dependency array, at the initial render useEffect will run once. Then later whenever the state variable changes only then useEffect is called.
+> Even if there is a dependency array, at the initial render useEffect will run once. Then later whenever the state variable changes only then useEffect is called.
 
 useEffect should always called at the top level of your component.
 
@@ -28,6 +28,7 @@ useEffect should always called at the top level of your component.
 ## Routing
 
 Using npm, install `react-router-dom`
+
 ```sh
 npm install react-router-dom
 ```
@@ -41,15 +42,16 @@ This enables faster user experiences because the browser doesn't need to request
 Add configuration in App.js
 
 ```js
-import {createBrowserRouter} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 
 const appRouter = createBrowserRouter([
   {
-    path:"/",
-    element: <AppLayout/>,
-  },{
-    path:"/about",
-    element:<About/>,
+    path: "/",
+    element: <AppLayout />,
+  },
+  {
+    path: "/about",
+    element: <About />,
   },
 ]);
 ```
@@ -64,7 +66,7 @@ This RouterProvider will provide the component to render.
 
 ```js
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={appRouter}/>);
+root.render(<RouterProvider router={appRouter} />);
 ```
 
 When we provide any route which isn't declared in createBrowserRouter(), then it throws a React error page
@@ -80,24 +82,26 @@ or
 react-router-dom provides an important Hook - `useRouterError`
 
 ```js
-const Error = ()=>{
+const Error = () => {
   const err = useRouteError();
   console.log(err);
-  return(
+  return (
     <div>
       <h1>Oops !!</h1>
       <h2>Something went wrong</h2>
-      <h3>{err.status}: {err.statusText}</h3>
+      <h3>
+        {err.status}: {err.statusText}
+      </h3>
     </div>
-  )
-}
+  );
+};
 ```
 
 `err` variable will return an object which has all the error information like status code, message etc.
 
 ## Children Routes
 
-Header isn't loaded when we are using routing. So to have the Header component intact with all other components. 
+Header isn't loaded when we are using routing. So to have the Header component intact with all other components.
 
 All the routes are populated in children attribute of createBrowserRouter()
 
@@ -124,6 +128,7 @@ const appRouter = createBrowserRouter([
   },
 ]);
 ```
+
 ## Outlet
 
 In AppLayout Component, we have to add a Component called `<Outlet>`
@@ -139,7 +144,6 @@ const AppLayout = () => {
 };
 ```
 
-
 So Header will render and all the other children declared with paths in createBrowserRouter() will be rendered along with Header in AppLayout.
 
 With respective the route path, the component is rendered. `<Outlet>` helps in rendering children routes.
@@ -151,14 +155,16 @@ Let's say there is a button About, you want to link that button to "/about" rout
 We have a component called `<Link/>` in react-router-dom, used to link routes. It doesn't re-render the whole page but only essential parts of page.
 
 # Two types of routing in Web
+
 - Client side routing
-- Server side routing 
+- Server side routing
 
 Single page application: Here the web application is just a single page which navigates to different components.
 
---------------
+---
 
 To make dynamic routing, here we are adding a colon (:) to load component based on the resId
+
 ```js
 {
   path: "/restaurants/:resId",
@@ -180,8 +186,11 @@ In the Body component, We use `<Link>` by react-router-dom, to link to the parti
 //Body.js
 <div className="res-container">
   {filteredRestaurants.map((restaurant) => (
-    <Link to={"/restaurants/"+restaurant.info.id} key={restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>
+    <Link to={"/restaurants/" + restaurant.info.id} key={restaurant.info.id}>
+      <RestaurantCard resData={restaurant} />
+    </Link>
   ))}
 </div>
 ```
-Internally `<Link>` uses anchor tag. It's a wrapper on `<a>` anchor tag. When the page is loaded, in developer tools, we can see that all the cards are in `<a>` tag.
+
+Internally `<Link>` uses anchor tag. It's a wrapper on `<a>` anchor tag. When the page is loaded, in developer tools, we can see that all the cards are in `<a>` tag.`
