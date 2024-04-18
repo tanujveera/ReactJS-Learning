@@ -104,8 +104,8 @@ Lets say there are many many React components loaded in DOM. Whenever there is a
 
 **DOM**: represents the web page often called a document with a logical tree and each branch of the tree ends in a node and each node contains objects.
 
->React updates the state changes in Virtual DOM first and then it syncs with actual DOM.
+> React updates the state changes in Virtual DOM first and then it syncs with actual DOM.
 
->Virtual DOM makes the performance faster not because of faster processing but rather than wasting time on updating the entire page, you can dissect it into small elements and interactions.
+> Virtual DOM makes the performance faster not because of faster processing but rather than wasting time on updating the entire page, you can dissect it into small elements and interactions.
 
->Reconciliation Algorithm finds the difference between the virtual DOM from previous virtual DOM and then re-renders the componentDOM.
+> Reconciliation Algorithm finds the difference between the virtual DOM from previous virtual DOM and then re-renders the componentDOM.
