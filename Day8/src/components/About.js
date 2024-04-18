@@ -6,8 +6,16 @@ const About = () => {
     <div>
       <h1>About</h1>
       <h2>This is Namsthe react About component</h2>
-      <User name={"Tanuj Veera (Funtional)"} />
-      <UserClass name={"Tanuj Veera (Class)"}/>
+      <User
+        name={"Tanuj Veera (Funtional)"}
+        location={"Hyderabad"}
+        contact={"@tanujveera"}
+      />
+      <UserClass
+        name={"Tanuj Veera (Class)"}
+        location={"Hyderabad"}
+        contact={"@tanujveera"}
+      />
     </div>
   );
 };
