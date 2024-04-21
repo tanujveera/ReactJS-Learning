@@ -114,3 +114,32 @@ Child is mounted first, then parent is mounted into DOM.
 `componentDidMount()` is mostly used for API fetch calls. First the page renders, then API is fetched and rendered accordingly.
 
 To get an understanding of [React Life Cycle Components](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/ "React Life Cycle")
+
+![React Life Cycle Components](image-1.png)
+
+Lets say 2 Child components are to be rendered in a Parent Component
+
+```
+Parent Constructor
+Parent Render
+  - First Child Constructor
+  - First Child Render
+
+  - Second Child Constructor
+  - Second Child Render
+
+  - First Child componentDidMount()
+  - Second Child componentDidMount()
+
+  - Parent componentDidMount()
+```
+There are 2 phases
+1) Render Phase: Rendered phase is batched
+  - When `Mounting`, constructors and render() methods are called.
+  - When `Updating`, props, setState(), forceUpdate()
+2) Commit Phase: Batched components are rendered and commit phase happens by updating DOM. This phase takes time.
+  - When `Mounting`, React updates DOM
+
+While loading a component, DOM manipulation is expensive. So Commit phase takes time to update DOM. Instead of rendering each child component individually, it tries to update the DOM by getting the batched components renders to load into DOM.
+
+

@@ -5,10 +5,9 @@ import UserClass from "./UserClass";
 class About extends React.Component {
   constructor(props) {
     super(props);
-    console.log("Parent Constructor");
   }
   componentDidMount() {
-    console.log("parent Component did mount");
+    // console.log("parent Component did mount");
   }
 
   render() {
@@ -24,6 +23,11 @@ class About extends React.Component {
         />
         <UserClass
           name={"Elon Musk (Class)"}
+          location={"Hyderabad"}
+          contact={"@tanujveera"}
+        />
+        <UserClass
+          name={"Mark Musk (Class)"}
           location={"Hyderabad"}
           contact={"@tanujveera"}
         />
