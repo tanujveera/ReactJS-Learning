@@ -10,6 +10,7 @@ class UserClass extends React.Component {
         created_at: "created",
         avatar_url: "https://avatars.githubusercontent.com/u/68957796?v=4",
       },
+      count: 0,
     };
   }
   async componentDidMount() {
@@ -20,14 +21,18 @@ class UserClass extends React.Component {
     this.setState({
       userInfo: json,
     });
+    // this.timer = setInterval(()=>{
+    //   console.log("setInterval")
+    // },1000);
   }
 
-  componentDidUpdate() {
-    console.log("Component Did Update");
+  componentDidUpdate(prevProps, prevState) {
+      console.log("Component Did Update");
   }
 
   componentWillUnmount() {
     console.log("User component unmounted");
+    // clearInterval(this.timer);
   }
 
   render() {

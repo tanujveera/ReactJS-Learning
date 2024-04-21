@@ -133,15 +133,80 @@ Parent Render
 
   - Parent componentDidMount()
 ```
+
 There are 2 phases
-1) Render Phase: Rendered phase is batched
-  - When `Mounting`, constructors and render() methods are called.
-  - When `Updating`, props, setState(), forceUpdate()
-2) Commit Phase: Batched components are rendered and commit phase happens by updating DOM. This phase takes time.
-  - When `Mounting`, React updates DOM
+
+1. Render Phase: Rendered phase is batched
+
+- When `Mounting`, constructors and render() methods are called.
+- When `Updating`, props, setState(), forceUpdate()
+
+2. Commit Phase: Batched components are rendered and commit phase happens by updating DOM. This phase takes time.
+
+- When `Mounting`, React updates DOM
 
 While loading a component, DOM manipulation is expensive. So Commit phase takes time to update DOM. Instead of rendering each child component individually, it tries to update the DOM by getting the batched components renders to load into DOM.
 
 Updating in Render Phase: When a state variable is set to new value, the component re-renders. Here `componentDidUpdate()` will be called when ever a state variable is set and update happens.
 
-`componentWillUnmount()` will be called when ever the component will be removed from DOM.
+`componentWillUnmount()` will be called when ever the component will be removed from DOM. When switching between pages, it will unmount the current rendered component and render the new component. At that moment this lifecycle method will be called.
+
+`componentWillUnmount()` allows you to perform any necessary cleanup, such as canceling timers, removing event listeners, or clearing any data structures that were set up during the mounting phase.
+
+Why should we clean up?
+
+```js
+componentDidMount() {
+    console.log("Component Did Mount");
+    this.timer = setInterval(()=>{
+      console.log("setInterval")
+    },1000);
+  }
+```
+
+This above code will start a timer printing `setInterval` every second. When you navigate to other component pages, it will start again. Now return to the previous page and you will notice 2 timers will be running. This is the problem with Single Page Applications.
+
+```js
+componentWillUnmount() {
+  console.log("User component unmounted");
+  clearInterval(this.timer);
+}
+```
+
+**NOTE** `this` keyword will used then that respective method, variable will be shared in the whole class.
+
+So we should clean up our code.
+
+Even if we use `useEffect()` in functional component which has setInterval(), even then it won't stop the timer even when you switch between pages.
+
+Here, First `Rendered` is printed, then `About useEffect` is printed. And when you go another page, then the `About return` is printed. This is how we can do clean up in `useEffect()`
+
+```js
+const About = () => {
+  useEffect(() => {
+    console.log("About useEffect");
+    return () => {
+      console.log("About return");
+    };
+  }, []);
+  console.log("Rendered");
+};
+```
+
+---
+
+Never Compare Class life cycle methods to Functional React Hooks.
+
+In useEffect(), After every render, it is updated not mounted.
+
+After functional components are introduced, React have removed life cycle methods.
+
+In class based Components, if we need to update componentDidUpdate()' based on the previous state, previous props then we have to do it like this, which was very hard.
+
+```js
+componentDidUpdate(prevProps, prevState) {
+  if (this.state.count != prevState.count) {
+    console.log("Component Did Update");
+  }
+}
+```
