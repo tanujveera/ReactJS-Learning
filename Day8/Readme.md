@@ -200,7 +200,7 @@ Never Compare Class life cycle methods to Functional React Hooks.
 
 In useEffect(), After every render, it is updated not mounted.
 
-**NOTE** The term "mounting" in class components refers to the process of creating an instance of the component and inserting it into the DOM. componentDidMount is the lifecycle method called after the component has been mounted into the DOM. 
+**NOTE** The term `mounting` in class components refers to the process of creating an instance of the component and inserting it into the DOM. componentDidMount is the lifecycle method called after the component has been mounted into the DOM. 
 
 After functional components are introduced, React have removed life cycle methods.
 
