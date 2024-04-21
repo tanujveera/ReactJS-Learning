@@ -3,15 +3,14 @@ import React from "react";
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-
-    console.log("Child Constructor");
     console.log(props);
     this.state = {
       count: 0,
     };
+    console.log(this.props.name + ": Child Constructor");
   }
-  componentDidMount(){
-    console.log("child Component did mount");
+  componentDidMount() {
+    console.log(this.props.name+"child Component did mount");
   }
 
   render() {

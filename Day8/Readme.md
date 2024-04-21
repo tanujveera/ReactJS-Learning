@@ -111,4 +111,6 @@ Parent Constructor -> Parent Render -> Child Constructor -> Child Render -> Chil
 
 Child is mounted first, then parent is mounted into DOM.
 
-`componentDidMount()` is mostly used for API fetch calls.
+`componentDidMount()` is mostly used for API fetch calls. First the page renders, then API is fetched and rendered accordingly.
+
+To get an understanding of [React Life Cycle Components](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/ "React Life Cycle")
