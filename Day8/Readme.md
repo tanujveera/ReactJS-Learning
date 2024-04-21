@@ -24,7 +24,6 @@ If we want to pass props to the Class components, we send the props to the const
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-    // console.log(props);
     console.log(this.props);
   }
   render() {
@@ -93,7 +92,7 @@ To update the state variable in class components, we have to use `setState({})` 
 
 We don't have to use `setState({})` method every time for each state variable. we can populate all those in a single `setState({})` method.
 
-About component is parent component, UserClass component is child class based component. When parent component renders, it finds the child component and it loads it as will. Here in child component, a new `instance` is created and `constructor` is called, then `render()` is called.
+About component is parent component, UserClass component is child class based component. When parent component renders, it finds the child component and it loads it as well. Here in child component, a new `instance` is created and `constructor` is called, then `render()` is called.
 
 Just like `render()` method, there are many lifecycle functions.
 
@@ -111,7 +110,7 @@ Parent Constructor -> Parent Render -> Child Constructor -> Child Render -> Chil
 
 Child is mounted first, then parent is mounted into DOM.
 
-`componentDidMount()` is mostly used for API fetch calls. First the page renders, then API is fetched and rendered accordingly.
+`componentDidMount()` is mostly used for API fetch calls. First the page renders, then API is fetched and rendered accordingly. When data is bring fetched, we can run a Shimmer UI or loading UI. When the data is fetched, then data is rendered.
 
 To get an understanding of [React Life Cycle Components](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/ "React Life Cycle")
 
@@ -164,7 +163,9 @@ componentDidMount() {
   }
 ```
 
-This above code will start a timer printing `setInterval` every second. When you navigate to other component pages, it will start again. Now return to the previous page and you will notice 2 timers will be running. This is the problem with Single Page Applications.
+This above code will start a timer printing `setInterval` every second. When you navigate to other component pages, it will continue to count timer in background. Now return to the previous page and you will notice 2 timers will be running. This is the problem with Single Page Applications.
+
+We can clean up the code using life cycle method `componentWillUnmount()`
 
 ```js
 componentWillUnmount() {
@@ -198,6 +199,8 @@ const About = () => {
 Never Compare Class life cycle methods to Functional React Hooks.
 
 In useEffect(), After every render, it is updated not mounted.
+
+**NOTE** The term "mounting" in class components refers to the process of creating an instance of the component and inserting it into the DOM. componentDidMount is the lifecycle method called after the component has been mounted into the DOM. 
 
 After functional components are introduced, React have removed life cycle methods.
 
