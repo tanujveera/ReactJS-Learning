@@ -79,13 +79,28 @@ render() {
 To update the state variable in class components, we have to use `setState({})` and we pass an JSON object which sets the state variable.
 
 ```js
-<button onClick={()=>{
-  this.setState({
-    count:this.state.count+1,
-    count2:this.state.count+1
-  })
-}}>Count Increase</button>
+<button
+  onClick={() => {
+    this.setState({
+      count: this.state.count + 1,
+      count2: this.state.count + 1,
+    });
+  }}
+>
+  Count Increase
+</button>
 ```
 
 We don't have to use `setState({})` method every time for each state variable. we can populate all those in a single `setState({})` method.
 
+About component is parent component, UserClass component is child class based component. When parent component renders, it finds the child component and it loads it as will. Here in child component, a new `instance` is created and `constructor` is called, then `render()` is called.
+
+Just like `render()` method, there are many lifecycle functions.
+
+componentDidMount() will run when the component is mounted.
+
+```js
+componentDidMount(){
+ console.log("child Component did mount");
+}
+```
