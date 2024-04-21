@@ -1,1 +1,3 @@
-/.vscode
+# To ignore all the dotted folders
+/**/.*/ 
+!/.gitignore
