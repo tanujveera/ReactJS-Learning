@@ -142,4 +142,6 @@ There are 2 phases
 
 While loading a component, DOM manipulation is expensive. So Commit phase takes time to update DOM. Instead of rendering each child component individually, it tries to update the DOM by getting the batched components renders to load into DOM.
 
+Updating in Render Phase: When a state variable is set to new value, the component re-renders. Here `componentDidUpdate()` will be called when ever a state variable is set and update happens.
 
+`componentWillUnmount()` will be called when ever the component will be removed from DOM.

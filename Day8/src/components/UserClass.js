@@ -3,30 +3,38 @@ import React from "react";
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-    this.state={
-      userInfo:{
+    this.state = {
+      userInfo: {
         login: "Username",
         location: "Default Location",
-        created_at:"created",
-        avatar_url:"https://avatars.githubusercontent.com/u/68957796?v=4"
-      }
-    }
+        created_at: "created",
+        avatar_url: "https://avatars.githubusercontent.com/u/68957796?v=4",
+      },
+    };
   }
   async componentDidMount() {
+    console.log("Component Did Mount");
     const data = await fetch("https://api.github.com/users/tanujveera");
     const json = await data.json();
     console.log(json);
     this.setState({
-      userInfo:json,
+      userInfo: json,
     });
+  }
 
+  componentDidUpdate() {
+    console.log("Component Did Update");
+  }
+
+  componentWillUnmount() {
+    console.log("User component unmounted");
   }
 
   render() {
     // const { name, location, contact } = this.props;
     // const { count } = this.state;
     const { login, location, created_at } = this.state.userInfo;
-    console.log(login +" "+location +" "+created_at);
+    console.log(login + " " + location + " " + created_at);
     return (
       <div className="user-card">
         {/* <h1>Count : {count}</h1>
