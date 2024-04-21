@@ -97,10 +97,18 @@ About component is parent component, UserClass component is child class based co
 
 Just like `render()` method, there are many lifecycle functions.
 
-componentDidMount() will run when the component is mounted.
+`componentDidMount()` will run when the component is completely mounted into the DOM.
 
 ```js
 componentDidMount(){
  console.log("child Component did mount");
 }
 ```
+
+When a component is loaded, they are loaded in this order
+
+Parent Constructor -> Parent Render -> Child Constructor -> Child Render -> Child componentDidMount() -> Parent componentDidMount()
+
+Child is mounted first, then parent is mounted into DOM.
+
+`componentDidMount()` is mostly used for API fetch calls.
