@@ -3,20 +3,30 @@ import React from "react";
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-    // initialize state variable
-    // this.state = {
-    //   count: 0,
-    // };
+    this.state={
+      userInfo:{
+        login: "Username",
+        location: "Default Location",
+        created_at:"created",
+        avatar_url:"https://avatars.githubusercontent.com/u/68957796?v=4"
+      }
+    }
   }
-  componentDidMount() {
-    // console.log(this.props.name + "child Component did mount");
+  async componentDidMount() {
+    const data = await fetch("https://api.github.com/users/tanujveera");
+    const json = await data.json();
+    console.log(json);
+    this.setState({
+      userInfo:json,
+    });
+
   }
 
   render() {
-    const { name, location, contact } = this.props;
+    // const { name, location, contact } = this.props;
     // const { count } = this.state;
-
-    console.log("Child Render");
+    const { login, location, created_at } = this.state.userInfo;
+    console.log(login +" "+location +" "+created_at);
     return (
       <div className="user-card">
         {/* <h1>Count : {count}</h1>
@@ -29,9 +39,9 @@ class UserClass extends React.Component {
         >
           Count Increase
         </button> */}
-        <h2>Name: {name}</h2>
+        <h2>Name: {login}</h2>
         <h3>Location: {location}</h3>
-        <h3>Contact: {contact}</h3>
+        <h3>Created on: {created_at}</h3>
       </div>
     );
   }
