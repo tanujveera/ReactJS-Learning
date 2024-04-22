@@ -30,14 +30,14 @@ import { useEffect } from "react";
 
 const About = () => {
   useEffect(() => {
-    let timer = setInterval(() => {
-      console.log("setInterval");
-    }, 1000);
+    // let timer = setInterval(() => {
+    //   console.log("setInterval");
+    // }, 1000);
     console.log("About useEffect");
-    return () => {
-      console.log("About return");
-      clearInterval(timer)
-    };
+    // return () => {
+    //   console.log("About return");
+    //   clearInterval(timer)
+    // };
   }, []);
   console.log("Rendered");
   return (

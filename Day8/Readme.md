@@ -8,3 +8,38 @@ Single Responsibility Principle: The idea behind the SRP is that every class, mo
 
 We wrote every component in different files.
 
+Keeping your code modular keeps your code maintainable and testable.
+
+## Custom Hooks
+
+When you have component logic that needs to be used by multiple components, we can extract that logic to a custom Hook. It makes our code more readable and usable. 
+
+Custom Hooks start with `use`. Example: useFetch()
+
+Fetching the data from an API and returning it, which can be used almost anywhere. So we can create a custom hook.
+
+```js
+const useRestaurantMenu = (resId) => {
+  const [resInfo, setResInfo] = useState(null);
+
+  const fetchData = async (resId) => {
+    const data = await fetch(MENU_API + resId);
+
+    const jsonData = await data.json();
+    // console.log(jsonData);
+    console.log(jsonData?.data);
+
+    setResInfo(jsonData?.data);
+  };
+
+  useEffect(() => {
+    fetchData(resId);
+    console.log("use Effect Menu");
+  }, []);
+
+  return resInfo;
+}
+```
+
+All Custom Hooks should have `use` as a prefix.
+
