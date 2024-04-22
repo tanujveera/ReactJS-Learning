@@ -42,3 +42,18 @@ const useRestaurantMenu = (resId) => {
 ```
 
 All Custom Hooks should have `use` as a prefix.
+
+# User Online or Offline
+
+How to write a custom hook?
+
+Finalize the contract, meaning be clear on what that custom hook should perform. What are the inputs it needs and output it should give.
+
+To create a feature if user is online or offline. We have to use `window` object which has `online event`
+
+Syntax:
+```js
+addEventListener("online",(event)=>{});
+ononline = (event)=>{};
+```
+

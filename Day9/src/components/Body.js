@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { BODY_API } from "../../utils/constants";
+import useOnlineStatus from "../../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -40,6 +41,13 @@ const Body = () => {
     );
     // console.log(listOfRestaurants);
   };
+
+  const onlineStatus = useOnlineStatus();
+  if(onlineStatus=== false){
+    return(
+      <h1>Looks like your offline ! Please check your internet connection.</h1>
+    )
+  }
 
   useEffect(() => {
     fetchData();
