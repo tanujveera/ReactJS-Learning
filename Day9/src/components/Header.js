@@ -20,7 +20,7 @@ const Header = () => {
       <div className="nav-items">
         <ul className="nav-items">
           <li>
-            Online Status : {onlineStatus?"Online":"Offline"}
+            Status : {onlineStatus?"Online":"Offline"}
           </li>
 
           <li>
@@ -34,6 +34,9 @@ const Header = () => {
           </li>
           <li>
             <Link to="/cart">Cart</Link>
+          </li>
+          <li>
+            <Link to="/grocery">Grocery</Link>
           </li>
           <button
             className="login"

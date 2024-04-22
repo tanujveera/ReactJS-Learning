@@ -59,3 +59,42 @@ ononline = (event)=>{};
 
 We created a `useOnlineStatus()` Hook which displays a text whether user is offline or online. We used this hook in Header component to show user status.
 
+## App Chunking
+
+App Chunking is also known as code splitting, lazy loading, dynamic bundling, on-demand loading, dynamic import.
+
+We can logically break our application into multiple bundles. So we don't put load on a single js file. When the bundled js file is loaded, it shouldn't so much time to load. So when you split your code into multiple bundled js files. it is easy to fetch and also app loads faster.
+
+We created a Grocery.js component. To make it lazily load. Initially when app loads, it doesn't load Grocery page, when ever we click on grocery then it loads it.
+
+React has a function called `lazy(callback Fn)`
+
+```js
+const Grocery = lazy(()=> import("./components/Grocery"))
+```
+
+Now since we used lazy loading for Grocery component, it doesn't load the grocery js file initially. When we click on Grocery, then it fetches the js file for Grocery component and then loads it. But it throws error.
+
+Initial Render
+
+![Initial Render](image.png)
+
+When clicked on Grocery, it fetches the Grocery js file
+
+![Grocery](image-1.png)
+
+It throws an error, saying that component suspended while responding to synchronous input.
+
+![Error](image-2.png)
+
+We have to use `<Suspense>` which shows some fallback JSX until children have finished loading.
+
+```js
+{
+  path: "/grocery",
+  element: <Suspense fallback={<h2>Loading.....</h2>}><Grocery /></Suspense>,
+},
+```
+
+After adding `<Suspense>` Component, it loads the JSX in fallback. fallback is an alternate UI to render in place of actual UI.
+
