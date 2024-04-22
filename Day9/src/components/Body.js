@@ -42,13 +42,6 @@ const Body = () => {
     // console.log(listOfRestaurants);
   };
 
-  const onlineStatus = useOnlineStatus();
-  if(onlineStatus=== false){
-    return(
-      <h1>Looks like your offline ! Please check your internet connection.</h1>
-    )
-  }
-
   useEffect(() => {
     fetchData();
     console.log("useEffect called");
@@ -99,7 +92,12 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurants.map((restaurant) => (
-          <Link to={"/restaurants/"+restaurant.info.id} key={restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>
+          <Link
+            to={"/restaurants/" + restaurant.info.id}
+            key={restaurant.info.id}
+          >
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>

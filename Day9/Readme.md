@@ -57,3 +57,5 @@ addEventListener("online",(event)=>{});
 ononline = (event)=>{};
 ```
 
+We created a `useOnlineStatus()` Hook which displays a text whether user is offline or online.
+
