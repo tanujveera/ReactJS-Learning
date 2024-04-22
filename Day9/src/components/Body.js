@@ -48,7 +48,7 @@ const Body = () => {
   }, []);
 
   console.log("Body rendered");
-  // console.log(listOfRestaurants[1].info.name)
+
   return listOfRestaurants.length === 0 ? (
     <Shimmer />
   ) : (

@@ -57,5 +57,5 @@ addEventListener("online",(event)=>{});
 ononline = (event)=>{};
 ```
 
-We created a `useOnlineStatus()` Hook which displays a text whether user is offline or online.
+We created a `useOnlineStatus()` Hook which displays a text whether user is offline or online. We used this hook in Header component to show user status.
 
