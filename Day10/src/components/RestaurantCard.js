@@ -10,9 +10,9 @@ const RestaurantCard = (props) => {
     resData?.info;
   const { deliveryTime } = resData.info?.sla;
   return (
-    <div className="res-card m-4 p-4 w-[250px] grid rounded-md" style={{ backgroundColor: "gray" }}>
+    <div className="res-card m-4 p-4 w-[250px] grid rounded-md hover:bg-gray-300 bg-gray-200">
       <img
-        className="res-logo rounded-md"
+        className="res-logo rounded-md shadow-md"
         src={CDN_URL + cloudinaryImageId}
         alt={name}
       ></img>

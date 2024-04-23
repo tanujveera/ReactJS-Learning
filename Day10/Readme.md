@@ -2,14 +2,14 @@
 
 Ways to write CSS
 
-1) Classic CSS
+1. Classic CSS
 
-2) Sass & Scss - Not recommended.
+2. Sass & Scss - Not recommended.
 
-3) Styled components is another way to add CSS.
+3. Styled components is another way to add CSS.
 
-4) Frameworks - Material UI, Bootstrap, Chakra UI, Ant Design.
-They provide React UI Components which are already styled.
+4. Frameworks - Material UI, Bootstrap, Chakra UI, Ant Design.
+   They provide React UI Components which are already styled.
 
 # Tailwind
 
@@ -20,12 +20,15 @@ To install Tailwind, there are various ways [Link](https://tailwindcss.com/docs/
 We are going to use Framework guides > Parcel [Link](https://tailwindcss.com/docs/guides/parcel "TailwindParcel")
 
 Install tailwindcss
+
 ```sh
 npm install -D tailwindcss postcss
 ```
+
 PostCSS: PostCSS is a JavaScript library that transforms CSS into JavaScript. Yep, you heard that right! CSS is transpiled into an abstract syntax tree, which is then represented with JavaScript objects. This transformation allows developers the opportunity to manipulate the CSS through those objects.
 
 Run init command to generate `tailwind.config.js` file
+
 ```sh
 npx tailwindcss init
 ```
@@ -45,14 +48,16 @@ In `tailwind.config.js`, we declare where it can find tailwindcss. It can find t
 ```js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/**/*.{html,js,ts,jsx,tsx}",
-  ],
+  content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
   theme: {
     extend: {},
   },
   plugins: [],
-}
+};
 ```
 
 Tailwind gives you classes which can perform particular CSS properties.
+
+Explore the Tailwind CSS in the docs.
+
+Go to this link and search for CSS classes. [Link](https://tailwindcss.com/docs/installation "Tailwind Docs")
