@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { BODY_API } from "../../utils/constants";
-import useOnlineStatus from "../../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -57,7 +56,7 @@ const Body = () => {
         <div className="search">
           <input
             type="text"
-            className="search-box"
+            className="border border-black border-solid"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
