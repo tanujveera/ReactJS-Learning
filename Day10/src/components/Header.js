@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { LOGO_URL } from "../../utils/constants";
+import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../../utils/useOnlineStatus";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
@@ -20,7 +20,7 @@ const Header = () => {
       <div className="flex items-center">
         <ul className="flex p-4 m-4 justify-evenly">
           <li className="px-4">
-            Status : {onlineStatus?"Online":"Offline"}
+            Status : {onlineStatus ? "Online" : "Offline"}
           </li>
 
           <li className="px-4">
