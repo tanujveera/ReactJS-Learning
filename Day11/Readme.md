@@ -45,3 +45,34 @@ In return statement, we logically render the component based on the discount inf
 
 ## Accordion
 The Accordion component lets users show and hide sections of related content on a page.
+
+You can add custom styles to tailwind by adding them to tailwind config file
+```js
+module.exports = {
+  content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      aspectRatio: {
+        "4/3": "4 / 3",
+        "1.5/1":"1.5 / 1",
+      },
+    },
+  },
+  plugins: [],
+};
+```
+
+To enable toggle feature
+```js
+const [showItems, setShowItems] = useState(false);
+const handleClick = ()=>{
+  console.log("clicked");
+  setShowItems(!showItems);
+}
+```
+If a accordian is open, and we opened another accordian, previous one will still be showing items.
+It should be done from `RestaurantMenu.js`, it should control `RestaurantCategory.js`
+
+This `RestaurantMenu.js` is a `Controlled Component`
+
+If you want to change your parent state variable from child, it's not possible directly. But you can send the setVar method of state variable as a prop.

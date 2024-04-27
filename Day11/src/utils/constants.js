@@ -15,4 +15,6 @@ const MENU_API =
 const BODY_API =
   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.5308668&lng=78.4478991&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
-export { CDN_URL, LOGO_URL, MENU_API, BODY_API };
+const IMG_ITEM_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/";
+
+export { CDN_URL, LOGO_URL, MENU_API, BODY_API, IMG_ITEM_URL };
