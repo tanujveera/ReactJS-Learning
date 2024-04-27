@@ -43,3 +43,5 @@ In return statement, we logically render the component based on the discount inf
 </div>
 ```
 
+## Accordion
+The Accordion component lets users show and hide sections of related content on a page.
