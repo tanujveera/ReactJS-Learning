@@ -92,7 +92,7 @@ To update the state variable in class components, we have to use `setState({})` 
 
 We don't have to use `setState({})` method every time for each state variable. we can populate all those in a single `setState({})` method.
 
-About component is parent component, UserClass component is child class based component. When parent component renders, it finds the child component and it loads it as well. Here in child component, a new `instance` is created and `constructor` is called, then `render()` is called.
+`About component` is parent component, `UserClass component` is child class based component. When parent component renders, it finds the child component and it loads it as well. Here in child component, a new `instance` is created and `constructor` is called, then `render()` is called.
 
 Just like `render()` method, there are many lifecycle functions.
 
