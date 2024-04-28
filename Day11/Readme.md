@@ -251,3 +251,41 @@ Here in the above code, Headers loads the `loggedInUser` as `Elon Musk` and In o
 - Context.Consumer must be used inside the render function of a functional component.
 
 **Use Case:** Use Context.Consumer when you need to access context data within a functional component. It's useful for consuming context data in components that are not directly wrapped by a Context.Provider component, allowing you to avoid prop drilling.
+
+----
+
+We passed the `userName` and `setUserName` method to set the state variable to the all the subtrees of `AppLayout` Component
+
+```js
+//App.js AppLayout
+const AppLayout = () => {
+const [userName, setUserName] = useState();
+return (
+  <UserContext.Provider value={{loggedInUser: userName,setUserName}}>
+    <div className="app">
+    <UserContext.Provider value={{loggedInUser: "Elon Musk"}}>
+      <Header />
+    </UserContext.Provider>
+      <Outlet />
+    </div>
+  </UserContext.Provider>
+);
+}
+```
+
+In `Body.js`, we are setting the value using the provided props - `loggedInUser` and `serUserName`
+
+```js
+//return statement of Body.js
+<div className="p-4 m-4">
+  <label>UserName: </label>
+  <input
+    className="border border-black rounded-sm px-1"
+    onChange={(e) => setUserName(e.target.value)}
+    value={loggedInUser}
+  />
+</div>
+```
+
+When we type anything in the input box, the changes are made instantly in `Body.js` and `About.js`.
+
