@@ -27,11 +27,11 @@ class UserClass extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-      console.log("Component Did Update");
+      // console.log("Component Did Update");
   }
 
   componentWillUnmount() {
-    console.log("User component unmounted");
+    // console.log("User component unmounted");
     // clearInterval(this.timer);
   }
 

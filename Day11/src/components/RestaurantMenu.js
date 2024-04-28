@@ -8,6 +8,8 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
   // console.log(resId);
 
+  const dummy = "dummy data";
+
   const [showIndex, setShowIndex] = useState(null);
 
   const resInfo = useRestaurantMenu(resId);
@@ -49,6 +51,7 @@ const RestaurantMenu = () => {
             data={c?.card?.card}
             showItems={index === showIndex ? true : false}
             setShowIndex={()=>setShowIndex(index)}
+            dummy={dummy}
           />
         ))}
       </div>
