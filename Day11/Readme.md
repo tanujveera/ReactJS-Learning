@@ -288,4 +288,3 @@ In `Body.js`, we are setting the value using the provided props - `loggedInUser`
 ```
 
 When we type anything in the input box, the changes are made instantly in `Body.js` and `About.js`.
-

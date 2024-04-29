@@ -15,7 +15,7 @@ const Header = () => {
   }, [btnName]);
 
   return (
-    <div className="flex justify-between shadow-lg">
+    <div className="flex justify-between shadow-lg bg-white">
       <div className="logo-container">
         <img className="w-28" src={LOGO_URL} />
       </div>
