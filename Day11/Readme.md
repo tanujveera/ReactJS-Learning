@@ -273,7 +273,7 @@ return (
 }
 ```
 
-In `Body.js`, we are setting the value using the provided props - `loggedInUser` and `serUserName`
+In `Body.js`, we are setting the value using the provided props - `loggedInUser` and `setUserName`
 
 ```js
 //return statement of Body.js
