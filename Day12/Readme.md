@@ -207,3 +207,21 @@ reducer:{
 
 Redux Toolkit either mutate the existing state or reducer a new state.
 
+Lets say we want to clear the cart and make the items array as 0
+
+```js
+//Either mutate the state
+reducer:{
+  clearCart:(state)=>{
+      state.items.length = 0;
+  },
+}
+// OR
+// return the new state
+reducer:{
+  clearCart:(state)=>{
+      return {items:[]};
+  },
+}
+```
+
