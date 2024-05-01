@@ -32,6 +32,26 @@ This process is called `subscribed` to the Redux store. So we can subscribe to r
 - Dispatch an action
 - selector
 
+## Redux Store
+The global state of an application is stored in an object tree within a single store
+
+The Redux store is the main, central bucket which stores all the states of an application. It should be considered and maintained as a single source of truth for the state of the application.
+
+## Actions in Redux
+The only way to change the state is to emit an action, which is an object describing what happened.
+
+State in Redux is read-only. This helps you restrict any part of the view or any network calls to write/update the state directly.
+
+Instead, if anyone wants to change the state of the application, then they'll need to express their intention of doing so by emitting or dispatching an action.
+
+## Reducers in Redux
+To specify how the state tree is transformed by actions, we write pure reducers
+
+Reducers, as the name suggests, take in two things: previous state and an action. Then they reduce it (read it return) to one entity: the new updated instance of state.
+
+So reducers are basically pure JS functions which take in the previous state and an action and return the newly updated state.
+
+
 ## Build
 
 We installed 2 dependencies. 
@@ -75,7 +95,7 @@ const cartSlice = createSlice({
   },
   reducers:{
     addItem:(state, action)=>{
-      //mutating
+      //mutating - modifying the state
       state.items.push(action.payload);
     },
     removeItem:(state)=>{
@@ -108,7 +128,37 @@ Every `reducer` in `configureStore` is a combination of `reducers` of slices.
 ```js
 const appStore = configureStore({
   reducer:{
-    
+    cart : cartReducer,
   }
 });
 ```
+## Selector
+
+We use selector to get the state or gives access to store. Selector is Hook in React.
+
+`useSelector()` is used to subscribe to the redux store. Here we are subscribing to `items` state in slice or store.
+```js
+//Header.js
+const cartItems = useSelector((store)=> store.cart.items);
+```
+
+`useDispatch()` will dispatch the reducer function. Here `addItem()` reducer is called and the state is modified in `cartSlice` redux store
+
+```js
+  const dispatch = useDispatch();
+  
+  const handleAddItem = () =>{
+  //dispatch an action
+  dispatch(addItem("pizza"))
+}
+```
+
+**Summary**
+```
+<Provider> will provide redux store to all the components wrapped in that tag.
+useSelector() hook to get states
+useDispatch() hook will dispatch the reducer function
+cartSlice (Redux store/slice)
+appStore (single source of truth for states)
+```
+
