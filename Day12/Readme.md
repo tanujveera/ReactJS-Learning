@@ -153,6 +153,8 @@ const cartItems = useSelector((store)=> store.cart.items);
 }
 ```
 
+---
+
 **Summary**
 ```
 <Provider> will provide redux store to all the components wrapped in that tag.
@@ -161,4 +163,47 @@ useDispatch() hook will dispatch the reducer function
 cartSlice (Redux store/slice)
 appStore (single source of truth for states)
 ```
+
+---
+
+>Older Redux or Vanilla Redux always prohibited mutating state or modifying state.
+
+Here we have to copy those state to another variable and make changes to it and return it. Returning was mandatory.
+
+```js
+const cartSlice = createSlice({
+  name:'cart',
+  initialState:{
+    items:[]
+  },
+  reducers:{
+    addItem:(state,action)=>{
+      const newState = [...state]
+      newState.items.push(action.payload)
+      return newState
+    },
+  }
+});
+```
+
+But in New Redux Toolkit, Redux uses `Immer` library.
+
+**Immer:** Immer can be used in any context in which immutable data structures need to be used. For example in combination with React state, React or Redux reducers, or configuration management.
+
+How Immer works: Current State -> Draft State -> Next State.
+
+It takes current state and draft a new state and return as next state.
+
+We can't get the current state directly. If we want to get the current state in reducers, there is function called `current()` in `@reduxjs/toolkit`
+
+```js
+reducer:{
+    addItem:(state,action)=>{
+    console.log(current(state))
+    state.items.push(action.payload)
+  },
+}
+```
+
+Redux Toolkit either mutate the existing state or reducer a new state.
 
