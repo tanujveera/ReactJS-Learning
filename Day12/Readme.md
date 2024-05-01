@@ -75,6 +75,7 @@ const cartSlice = createSlice({
   },
   reducers:{
     addItem:(state, action)=>{
+      //mutating
       state.items.push(action.payload);
     },
     removeItem:(state)=>{
@@ -99,4 +100,15 @@ export default cartSlice.reducer;
     - every function takes 2 arguments 
       - `state` - provides the current state
       - `action` - provides the action
+      - we are directly modifying our state.
 - This is standard way to export reducers and actions.
+
+Every `reducer` in `configureStore` is a combination of `reducers` of slices.
+
+```js
+const appStore = configureStore({
+  reducer:{
+    
+  }
+});
+```
