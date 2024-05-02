@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/tanujveera/ReactJS-Learning#readme",
   "devDependencies": {
+    "@babel/core": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
+    "@testing-library/react": "^15.0.6",
+    "babel-jest": "^29.7.0",
     "parcel": "^2.10.3",
     "postcss": "^8.4.38",
     "process": "^0.11.10",
