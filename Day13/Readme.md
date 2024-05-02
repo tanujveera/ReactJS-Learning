@@ -76,7 +76,7 @@ npx jest --init
 
 ![CMD line](image.png)
 
-> jsdom
+## jsdom
 
 `jsdom` is the test environment that will be used for testing. The test cases will not run on browsers.
 
