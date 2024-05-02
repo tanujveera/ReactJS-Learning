@@ -3,6 +3,7 @@
 # Testing
 
 Types of testing that a developer can do.
+
 - Unit Testing
 - Integration Testing
 - End to End Testing (E2E)
@@ -15,40 +16,46 @@ To test react, we have `React Testing Library`. There are testing libraries for 
 
 These libraries have a parent library called DOM testing library which is the base to all the specific framework testing libraries.
 
->Step 1
-Command to install the library
+> Step 1
+> Command to install the library
+
 ```sh
 npm install -D @testing-library/react
 ```
 
 ## JEST
+
 React Testing Library uses `Jest` library. So DOM & React testing library inherently uses `Jest` library.
 
->Step 2
+> Step 2
+
 ```js
 npm install --save-dev babel-jest @babel/core @babel/preset-env
 ```
 
 Since we are babel, we have configure it in our app. Create a file in project root directory `babel.config.js`.
 
->Step 3 Install Jest
+> Step 3 Install Jest
+
 ```sh
 npm i -D jest
 ```
 
->Step 4 Configure Babel - [Link](https://jestjs.io/docs/getting-started "Babel Test")
+> Step 4 Configure Babel - [Link](https://jestjs.io/docs/getting-started "Babel Test")
+
 ```js
 // babel.config.js
 module.exports = {
-  presets: [['@babel/preset-env', {targets: {node: 'current'}}]],
+  presets: [["@babel/preset-env", { targets: { node: "current" } }]],
 };
 ```
 
 Parcel uses Babel inherently. So there might be a conflict between them. We have to configure babel to work with parcel. [Parcel-Babel](https://parceljs.org/languages/javascript/#babel "Babel")
 
->Step 5 Configure Parcel file to disable default babel transpilation
+> Step 5 Configure Parcel file to disable default babel transpilation
 
 create a file `.parcelrc`
+
 ```js
 {
   "extends": "@parcel/config-default",
@@ -62,13 +69,14 @@ create a file `.parcelrc`
 ```
 
 > Step 6 Jest Configuration which creates a `jest.config.js`
+
 ```sh
 npx jest --init
 ```
 
 ![CMD line](image.png)
 
->jsdom
+> jsdom
 
 `jsdom` is the test environment that will be used for testing. The test cases will not run on browsers.
 
@@ -83,6 +91,7 @@ npm install --save-dev jest-environment-jsdom
 ---
 
 When you run test command
+
 ```sh
 npm run test
 ```
@@ -98,16 +107,17 @@ We have to keep all the test js files in `__test__` folder and file name is `**.
 **CODE** for Jest test cases
 
 ```js
-import { sum } from "../components/sum"
+import { sum } from "../components/sum";
 
-test("Sum Function should calculate sum of numbers",()=>{
-  const result = sum(2,3);
+test("Sum Function should calculate sum of numbers", () => {
+  const result = sum(2, 3);
   //Assertion
   expect(result).toBe(5);
-})
+});
 ```
 
 Test template
+
 ```js
 test(<descrition>,callback function)
 ```
@@ -115,5 +125,3 @@ test(<descrition>,callback function)
 `expect()` - It expects input from the a component or function.
 
 `toBe()` - It verifies whether the input is same as expected.
-
-
