@@ -122,6 +122,7 @@ Test template
 test(<descrition>,callback function)
 ```
 
-`expect()` - It expects input from the a component or function.
+`expect()` - It expects result as input from the a component or function.
 
 `toBe()` - It verifies whether the input is same as expected.
+
