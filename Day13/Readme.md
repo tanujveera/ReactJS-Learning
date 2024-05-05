@@ -84,6 +84,7 @@ It is a kind of browser. When a component is loaded, it loads in to jsdom.
 
 **NOTE** If you're using Jest 28 or later, jest-environment-jsdom package now must be installed separately.
 
+>Step 7
 ```js
 npm install --save-dev jest-environment-jsdom
 ```
@@ -125,4 +126,51 @@ test(<descrition>,callback function)
 `expect()` - It expects result as input from the a component or function.
 
 `toBe()` - It verifies whether the input is same as expected.
+
+----
+
+Whenever we are testing a component in React, we have to load the component in DOM.
+
+React Testing Library has a method called `render(<Component/>)` which renders in to DOM.
+
+```js
+test("Should load contact as component",()=>{
+  render(<Contact/>);
+
+  const heading = screen.getByRole("heading");
+
+  expect(heading).toBeInTheDocument();
+});
+```
+
+We have rendered `<Contact/>` component using `render()`, this component is loaded in `jsdom`. We have to see if the heading has been rendered or not.
+
+`getByRole()` method helps you to get the heading from the loaded DOM. 
+
+`expect()` method will expect heading and uses `toBeInTheDocument()`to check if it is present.
+
+This above code throws error, because it doesn't support JSX in test cases
+
+>Step 8: We have `@babel/preset-react` as dependency
+
+```sh
+npm install @babel/preset-react
+```
+
+You also have to add it to `babel.config.js` and give `runtime` as `automatic`
+
+```js
+module.exports = {
+  presets: [
+    ["@babel/preset-env", { targets: { node: "current" } }],
+    ["@babel/preset-react", { runtime: "automatic" }],
+  ],
+};
+```
+
+It throws error, which says it didn't find the function `toBeInTheDocument()`.
+
+```sh
+npm install @testing-library/jest-dom
+```
 
