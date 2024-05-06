@@ -186,8 +186,37 @@ test("Should load input name inside contact component",()=>{
 });
 ```
 
+---
+
 **NOTE** If any case VSCode intellisense is not providing suggestions for the methods.
 
 In your test files, Jest puts each of these methods and objects into the global environment. You don't have to require or import anything to use them. However, if you prefer explicit imports, you can do `import {describe, expect, test} from '@jest/globals'`.
 
-This above explicit import statement has restored my intellisense.
+Adding this above import statement explicitly has restored my VSCode intellisense.
+
+---
+
+`describe("<description>",()=>{<all the test cases can be enclosed here>})`
+
+using `describe()`, we can replace `test()` with `it()` to write the test cases. Both are same.
+
+```js
+describe("Contact us page test cases", () => {
+  test("Should load contact as component", () => {
+    render(<Contact />);
+
+    const heading = screen.getByRole("heading");
+
+    expect(heading).toBeInTheDocument();
+  });
+
+  it("Should load input name inside contact component", () => {
+    render(<Contact />);
+
+    const heading = screen.getByPlaceholderText("Name");
+
+    expect(heading).toBeInTheDocument();
+  });
+})
+```
+
