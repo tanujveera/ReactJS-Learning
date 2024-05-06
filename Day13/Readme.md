@@ -168,9 +168,26 @@ module.exports = {
 };
 ```
 
-It throws error, which says it didn't find the function `toBeInTheDocument()`.
+>Step 9: It throws error, which says it didn't find the function `toBeInTheDocument()`.
 
 ```sh
 npm install @testing-library/jest-dom
 ```
 
+Lets say we want to test if the component has a input element. We can use `getByPlaceholderText()` to get that input element which has a placeholder.
+
+```js
+test("Should load input name inside contact component",()=>{
+  render(<Contact/>);
+
+  const heading = screen.getByPlaceholderText("Name");
+
+  expect(heading).toBeInTheDocument();
+});
+```
+
+**NOTE** If any case VSCode intellisense is not providing suggestions for the methods.
+
+In your test files, Jest puts each of these methods and objects into the global environment. You don't have to require or import anything to use them. However, if you prefer explicit imports, you can do `import {describe, expect, test} from '@jest/globals'`.
+
+This above explicit import statement has restored my intellisense.
