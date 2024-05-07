@@ -9,13 +9,16 @@ const styleCard = {
 const RestaurantCard = (props) => {
   const { resData } = props;
   // console.log(resData)
-  const {loggedInUser} = useContext(UserContext);
+  const { loggedInUser } = useContext(UserContext);
   const { cloudinaryImageId, name, cuisines, avgRating, costForTwo } =
     resData?.info;
   const { deliveryTime } = resData.info?.sla;
-  
+
   return (
-    <div className="res-card m-4 p-4 w-[250px] grid rounded-md hover:bg-gray-300 bg-gray-200">
+    <div
+      data-testid="resCard"
+      className="res-card m-4 p-4 w-[250px] grid rounded-md hover:bg-gray-300 bg-gray-200"
+    >
       <img
         className="res-logo rounded-md shadow-md"
         src={CDN_URL + cloudinaryImageId}
@@ -31,16 +34,20 @@ const RestaurantCard = (props) => {
   );
 };
 
-export const withPromotedLabel = (RestaurantCard)=>{
-  return (props)=>{
+export const withPromotedLabel = (RestaurantCard) => {
+  return (props) => {
     return (
       <div className="">
-        <label className="absolute bg-black text-white m-2 p-2 rounded-lg">{props?.resData?.info?.aggregatedDiscountInfoV3?.header +" "+ props?.resData?.info?.aggregatedDiscountInfoV3?.subHeader}</label>
-        <RestaurantCard {...props}/>
+        <label className="absolute bg-black text-white m-2 p-2 rounded-lg">
+          {props?.resData?.info?.aggregatedDiscountInfoV3?.header +
+            " " +
+            props?.resData?.info?.aggregatedDiscountInfoV3?.subHeader}
+        </label>
+        <RestaurantCard {...props} />
         {/* {console.log(props?.resData?.info)} */}
       </div>
-    )
-  }
+    );
+  };
 };
 
 export default RestaurantCard;

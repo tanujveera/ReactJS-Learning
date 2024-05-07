@@ -20,20 +20,20 @@ const Body = () => {
     //   )}`
     // );
 
-    const data = fetch(BODY_API);
+    const data = await fetch(BODY_API);
 
-    const jsonData = await data
-      .then((res) => {
-        if (res.ok) return res.json();
-      })
-      .then((data) => {
-        return data;
-      });
+    const jsonData = await data.json();
+      // .then((res) => {
+      //   if (res.ok) return res.json();
+      // })
+      // .then((data) => {
+      //   return data;
+      // });
 
-    console.log(
-      jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants
-    );
+    // console.log(
+    //   jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
+    //     ?.restaurants
+    // );
     setListOfRestaurants(
       jsonData?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants
@@ -60,6 +60,7 @@ const Body = () => {
         <div className="search m-4 p-4">
           <input
             type="text"
+            data-testid="searchInput"
             className="border border-black border-solid"
             value={searchText}
             onChange={(e) => {
@@ -82,6 +83,7 @@ const Body = () => {
         </div>
         <div className="p-4 m-4">
           <button
+          data-testid ="topRes"
             className="px-4 py-1 bg-gray-100 m-4 border border-black rounded-lg"
             onClick={() => {
               let filterResList = filteredRestaurants.filter(

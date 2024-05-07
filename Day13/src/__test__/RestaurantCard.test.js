@@ -20,3 +20,4 @@ it("should render RestaurantCard component with Promoted label", () => {
 
   expect(name).toBeInTheDocument();
 });
+

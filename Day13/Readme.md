@@ -175,6 +175,8 @@ module.exports = {
 npm install @testing-library/jest-dom
 ```
 
+## Testing using jest
+
 Lets say we want to test if the component has a input element. We can use `getByPlaceholderText()` to get that input element which has a placeholder.
 
 ```js
@@ -280,7 +282,7 @@ it("Should change login button to logout when clicked", () => {
 });
 ```
 
-Testing a High Order Component (HOC)
+Testing a High Order Component (HOC - Enhancing the current component)
 
 ```js
 it("should render RestaurantCard component with Promoted label", () => {
@@ -291,5 +293,96 @@ it("should render RestaurantCard component with Promoted label", () => {
 
   expect(name).toBeInTheDocument();
 });
-````
+```
+
+When testing `Body.js`, we have `fetch` in that component, `fetch` is given to browser.
+
+So to test that we need to mock the fetch function in `Body.js`.
+
+In the test cases, we write this in global. This fetch is a mock version of the fetch in `Body.js`
+
+```js
+global.fetch = jest.fn(()=>{
+  return Promise.resolve({
+    json:()=>{
+      return Promise.resolve(data);
+    }
+  })
+})
+```
+
+But why is it written like this with multiple Promises?
+
+Below is the code written to fetch data from an API. `fetch(URL)` usually returns a Promise, and that Promise is converted to json, it again returns a promise with json data.
+
+```js
+// Body.js
+const data = await fetch(BODY_API);
+const jsonData = await data.json();
+```
+
+Whenever we are doing state update, we have to wrap the component in `act()` function.
+
+This act method is deprecated from `import {act} from 'react-dom/test-utils'`
+
+This method is now in `import {act} from 'react'` or `import { act } from "@testing-library/react"`
+```js
+it("Should render the body component", async () => {
+  await act(async () => {
+    render(
+      <BrowserRouter>
+        <Body />
+      </BrowserRouter>
+    );
+  });
+  const searchBtn = screen.getByRole("button",{name:"Search"});
+  console.log(searchBtn);
+  expect(searchBtn).toBeInTheDocument();
+});
+```
+
+Sometimes `getByRole()` doesn't work. In that case, we can use `getByTestId("searchInput")` to get that element.
+
+To use this, we have to give a `data-testid="searchIput"` attribute to the JSX of that element we want to test.
+
+```js
+//To get the element using test id
+const searchInput = screen.getByTestId("searchInput");
+```
+
+```js
+<input
+  type="text"
+  //declare testid 
+  data-testid="searchInput"
+  className="border border-black border-solid"
+  value={searchText}
+  onChange={(e) => {
+    setSearchText(e.target.value);
+  }}
+></input>
+```
+
+Here we are first changing the input field and then clicking search button for getting results
+
+```js
+it("Should render the body component and search input", async () => {
+  await act(async () => {
+    render(
+      <BrowserRouter>
+        <Body />
+      </BrowserRouter>
+    );
+  });
+  const cardsBeforeSearch = screen.All
+  expect(allCards.length).toBe(20);
+  const searchBtn = screen.getByRole("button",{name:"Search"});
+  const searchInput = screen.getByTestId("searchInput");
+  
+  fireEvent.change(searchInput,{target:{value:"hotel"}});
+  fireEvent.click(searchBtn);
+  const allCards = screen.getAllByTestId("resCard");
+  expect(allCards.length).toBe(1);
+});
+```
 
