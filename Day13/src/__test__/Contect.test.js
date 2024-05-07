@@ -5,6 +5,23 @@ import Contact from "../components/Contact";
 
 
 describe("Contact us page test cases", () => {
+
+  afterAll(()=>{
+    console.log("After all test cases")
+  })
+
+  afterEach(()=>{
+    console.log("After Each")
+  })
+
+  beforeAll(()=>{
+    console.log("Before All tests")
+  })
+
+  beforeEach(()=>{
+    console.log("beforeEach runs at each test case")
+  })
+
   it("Should load contact as component", () => {
     render(<Contact />);
 

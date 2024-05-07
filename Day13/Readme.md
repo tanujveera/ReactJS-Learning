@@ -175,7 +175,7 @@ module.exports = {
 npm install @testing-library/jest-dom
 ```
 
-## Testing using jest
+## Unit Testing using jest
 
 Lets say we want to test if the component has a input element. We can use `getByPlaceholderText()` to get that input element which has a placeholder.
 
@@ -259,6 +259,8 @@ it("Should render Header Component with a login button", () => {
   expect(loginButton).toBeInTheDocument();
 });
 ```
+
+## Integrating Testing
 
 If you want to click a button and test the changes in the button rendered.
 
@@ -363,7 +365,7 @@ const searchInput = screen.getByTestId("searchInput");
 ></input>
 ```
 
-Here we are first changing the input field and then clicking search button for getting results
+Here we are first changing the input field and then clicking search button for getting results.
 
 ```js
 it("Should render the body component and search input", async () => {
@@ -384,5 +386,25 @@ it("Should render the body component and search input", async () => {
   const allCards = screen.getAllByTestId("resCard");
   expect(allCards.length).toBe(1);
 });
+```
+
+Sometimes we might perform some cleanup code or any fetch. in those cases we can use these functions
+
+```js
+afterAll(()=>{
+  console.log("After all test cases")
+})
+
+afterEach(()=>{
+  console.log("After Each")
+})
+
+beforeAll(()=>{
+  console.log("Before All tests")
+})
+
+beforeEach(()=>{
+  console.log("beforeEach runs at each test case")
+})
 ```
 

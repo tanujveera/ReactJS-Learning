@@ -48,7 +48,7 @@ it("Should render the body component and res List and search input", async () =>
 });
 
 test("Should render all the top rated Restaurants",async ()=>{
-  act(() => {
+  await act(() => {
     render(
       <BrowserRouter>
         <Body />
