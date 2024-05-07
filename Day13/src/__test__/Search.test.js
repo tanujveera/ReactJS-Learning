@@ -58,9 +58,9 @@ test("Should render all the top rated Restaurants",async ()=>{
   const cardsBeforeSearch = screen.getAllByTestId("resCard");
   expect(cardsBeforeSearch.length).toBe(20);
   const topRes = screen.getByRole("button",{name:"Top Rated Restaurants"});
-  console.log(topRes);
+  // console.log(topRes);
   fireEvent.click(topRes);
   const cards = screen.getAllByTestId("resCard");
-  console.log(cards);
+  // console.log(cards);
   expect(cards.length).toBe(6);
 });
