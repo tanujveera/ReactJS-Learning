@@ -84,7 +84,8 @@ It is a kind of browser. When a component is loaded, it loads in to jsdom.
 
 **NOTE** If you're using Jest 28 or later, jest-environment-jsdom package now must be installed separately.
 
->Step 7
+> Step 7
+
 ```js
 npm install --save-dev jest-environment-jsdom
 ```
@@ -127,15 +128,15 @@ test(<descrition>,callback function)
 
 `toBe()` - It verifies whether the input is same as expected.
 
-----
+---
 
 Whenever we are testing a component in React, we have to load the component in DOM.
 
 React Testing Library has a method called `render(<Component/>)` which renders in to DOM.
 
 ```js
-test("Should load contact as component",()=>{
-  render(<Contact/>);
+test("Should load contact as component", () => {
+  render(<Contact />);
 
   const heading = screen.getByRole("heading");
 
@@ -145,13 +146,13 @@ test("Should load contact as component",()=>{
 
 We have rendered `<Contact/>` component using `render()`, this component is loaded in `jsdom`. We have to see if the heading has been rendered or not.
 
-`getByRole()` method helps you to get the heading from the loaded DOM. 
+`getByRole()` method helps you to get the heading from the loaded DOM.
 
 `expect()` method will expect heading and uses `toBeInTheDocument()`to check if it is present.
 
 This above code throws error, because it doesn't support JSX in test cases
 
->Step 8: We have `@babel/preset-react` as dependency
+> Step 8: We have `@babel/preset-react` as dependency
 
 ```sh
 npm install @babel/preset-react
@@ -168,7 +169,7 @@ module.exports = {
 };
 ```
 
->Step 9: It throws error, which says it didn't find the function `toBeInTheDocument()`.
+> Step 9: It throws error, which says it didn't find the function `toBeInTheDocument()`.
 
 ```sh
 npm install @testing-library/jest-dom
@@ -177,8 +178,8 @@ npm install @testing-library/jest-dom
 Lets say we want to test if the component has a input element. We can use `getByPlaceholderText()` to get that input element which has a placeholder.
 
 ```js
-test("Should load input name inside contact component",()=>{
-  render(<Contact/>);
+test("Should load input name inside contact component", () => {
+  render(<Contact />);
 
   const heading = screen.getByPlaceholderText("Name");
 
@@ -217,6 +218,78 @@ describe("Contact us page test cases", () => {
 
     expect(heading).toBeInTheDocument();
   });
-})
+});
 ```
+
+Since we are using redux for state management. When we try to run tests on any component, then it will throw error because jest doesn't understand redux.
+
+Here, `<Header/>` doesn't pass the test because there are so many redux and react-dom elements which doesn't make sense to jest.
+
+We have to provide the Redux store and Browser router to test it.
+
+```js
+it("Should load Header Component with a login button", () => {
+  render(
+    <BrowserRouter>
+      <Provider store={appStore}>
+        <Header />
+      </Provider>
+    </BrowserRouter>
+  );
+});
+```
+
+Different ways to test a component using screen
+
+```js
+it("Should render Header Component with a login button", () => {
+  render(
+    <BrowserRouter>
+      <Provider store={appStore}>
+        <Header />
+      </Provider>
+    </BrowserRouter>
+  );
+
+  // const loginButton = screen.getByRole("button");
+  const loginButton = screen.getByRole("button", { name: "Login" });
+  // const loginButton = screen.getByText("Login");
+  expect(loginButton).toBeInTheDocument();
+});
+```
+
+If you want to click a button and test the changes in the button rendered.
+
+`fireEvent` will perform events in jsdom and then we can check for the newly rendered element.
+
+```js
+it("Should change login button to logout when clicked", () => {
+  render(
+    <BrowserRouter>
+      <Provider store={appStore}>
+        <Header />
+      </Provider>
+    </BrowserRouter>
+  );
+
+  const loginButton = screen.getByRole("button",{name:"Login"});
+  //FireEvent
+  fireEvent.click(loginButton);
+  const logoutButton = screen.getByRole("button",{name:"Logout"});
+  expect(logoutButton).toBeInTheDocument();
+});
+```
+
+Testing a High Order Component (HOC)
+
+```js
+it("should render RestaurantCard component with Promoted label", () => {
+  const RestaurantLabel = withPromotedLabel(RestaurantCard);
+  render( <RestaurantLabel resData={MOCK_DATA}/>);
+
+  const name = screen.getByText("ITEMS AT ₹179")
+
+  expect(name).toBeInTheDocument();
+});
+````
 

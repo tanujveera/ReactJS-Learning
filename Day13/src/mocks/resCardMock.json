@@ -1,0 +1,62 @@
+{
+  "info": {
+      "id": "667695",
+      "name": "Chinese Wok",
+      "cloudinaryImageId": "e0839ff574213e6f35b3899ebf1fc597",
+      "locality": "Qutubullapur",
+      "areaName": "Kompally",
+      "costForTwo": "₹250 for two",
+      "cuisines": [
+          "Chinese",
+          "Asian",
+          "Tibetan",
+          "Desserts"
+      ],
+      "avgRating": 3.8,
+      "parentId": "61955",
+      "avgRatingString": "3.8",
+      "totalRatingsString": "500+",
+      "sla": {
+          "deliveryTime": 54,
+          "lastMileTravel": 6.1,
+          "serviceability": "SERVICEABLE",
+          "slaString": "50-55 mins",
+          "lastMileTravelString": "6.1 km",
+          "iconType": "ICON_TYPE_EMPTY"
+      },
+      "availability": {
+          "nextCloseTime": "2024-05-06 23:00:00",
+          "opened": true
+      },
+      "badges": {},
+      "isOpen": true,
+      "type": "F",
+      "badgesV2": {
+          "entityBadges": {
+              "imageBased": {},
+              "textBased": {},
+              "textExtendedBadges": {}
+          }
+      },
+      "aggregatedDiscountInfoV3": {
+          "header": "ITEMS",
+          "subHeader": "AT ₹179"
+      },
+      "differentiatedUi": {
+          "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+          "differentiatedUiMediaDetails": {
+              "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+              "lottie": {},
+              "video": {}
+          }
+      },
+      "reviewsSummary": {},
+      "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+      "restaurantOfferPresentationInfo": {}
+  },
+  "analytics": {},
+  "cta": {
+      "link": "https://www.swiggy.com/restaurants/chinese-wok-qutubullapur-kompally-hyderabad-667695",
+      "type": "WEBLINK"
+  }
+}
