@@ -163,6 +163,10 @@ Single page application: Here the web application is just a single page which na
 
 ---
 
+---
+
+## Dynamic Routing
+
 To make dynamic routing, here we are adding a colon (:) to load component based on the resId
 
 ```js
@@ -171,6 +175,8 @@ To make dynamic routing, here we are adding a colon (:) to load component based 
   element: <RestaurantMenu />,
 }
 ```
+
+---
 
 In the above code, the resId is consumed by using useParams() Hook from react-router-dom
 

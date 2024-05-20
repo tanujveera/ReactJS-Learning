@@ -64,7 +64,7 @@ We installed 2 dependencies.
 import {configureStore} from "@reduxjs/toolkit";
 const appStore = configureStore({});
 ```
-
+## Provider
 `<Provider key={configureStore}>` will provide the redux store to react 
 ```js
 //App.js
@@ -81,6 +81,8 @@ return (
   </Provider>
 );
 ```
+
+## Redux Slice
 
 Create a card slice
 

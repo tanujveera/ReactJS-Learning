@@ -175,7 +175,7 @@ module.exports = {
 npm install @testing-library/jest-dom
 ```
 
-## Unit Testing using jest
+## Unit Testing using Jest
 
 Lets say we want to test if the component has a input element. We can use `getByPlaceholderText()` to get that input element which has a placeholder.
 
